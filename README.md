@@ -36,10 +36,10 @@ A plataforma terá como foco facilitar a busca, divulgação e negociação de p
 ## Equipe
 
 - Raylla Ruthiely Gomes Santana
-- Nome do integrante 2
-- Nome do integrante 3
-- Nome do integrante 4
-- Nome do integrante 5
+- Alana Farias Silva
+- Samuel Felipe De Sena Estevão
+- João Guilherme Aguiar Lustosa
+- Maria Eduarda Rodrigues Lima
 
 ## Tecnologias
 
