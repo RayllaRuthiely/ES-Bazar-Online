@@ -106,8 +106,9 @@ A equipe deverá discutir:
 # 3. Papéis
    
 3.1 Responsável pelo backlog
+
 Será responsável por organizar e priorizar as funcionalidades que deverão ser desenvolvidas.
-Responsável:
+Responsável: Todos
 
  3.2 Responsável pela demonstração
 
