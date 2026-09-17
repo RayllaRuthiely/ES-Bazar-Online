@@ -4,16 +4,16 @@
 
 | Termo             | Definição                                                                                                       | Fonte |
 | ----------------- | --------------------------------------------------------------------------------------------------------------- | ----- |
-| Bazar Online      | Plataforma web voltada para a compra e venda de produtos entre moradores de Palmas–TO.                          | D1    |
-| Usuário           | Pessoa que utiliza a plataforma para consultar ou anunciar produtos.                                            | D1    |
-| Comprador         | Usuário interessado em encontrar e negociar produtos anunciados na plataforma.                                  | D1    |
-| Vendedor          | Usuário que cadastra e gerencia anúncios de produtos.                                                           | D1    |
-| Anúncio           | Publicação de um produto disponível para compra, contendo informações como fotos, descrição, preço e categoria. | D1    |
-| Produto           | Item novo ou usado disponibilizado para venda no Bazar Online.                                                  | D1    |
-| Categoria         | Classificação utilizada para organizar os produtos anunciados.                                                  | D1    |
-| Catálogo          | Lista de produtos disponíveis para consulta pelos compradores.                                                  | D1    |
-| Status do anúncio | Situação atual de um anúncio, podendo ser disponível, reservado ou vendido.                                     | D1    |
-| Localização       | Informação utilizada para indicar que o produto está disponível na região de Palmas–TO.                         | D1    |
+| Bazar Online      | Plataforma web voltada para a compra e venda de produtos entre moradores de Palmas–TO.                          | `DESCOBERTA.md`    |
+| Usuário           | Pessoa que utiliza a plataforma para consultar ou anunciar produtos.                                            | `DESCOBERTA.md`    |
+| Comprador         | Usuário interessado em encontrar e negociar produtos anunciados na plataforma.                                  | `DESCOBERTA.md`    |
+| Vendedor          | Usuário que cadastra e gerencia anúncios de produtos.                                                           | `DESCOBERTA.md`    |
+| Anúncio           | Publicação de um produto disponível para compra, contendo informações como fotos, descrição, preço e categoria. | `DESCOBERTA.md`    |
+| Produto           | Item novo ou usado disponibilizado para venda no Bazar Online.                                                  | `DESCOBERTA.md`    |
+| Categoria         | Classificação utilizada para organizar os produtos anunciados.                                                  | `DESCOBERTA.md`    |
+| Catálogo          | Lista de produtos disponíveis para consulta pelos compradores.                                                  | `DESCOBERTA.md`    |
+| Status do anúncio | Situação atual de um anúncio, podendo ser disponível, reservado ou vendido.                                     | `DESCOBERTA.md`    |
+| Localização       | Informação utilizada para indicar que o produto está disponível na região de Palmas–TO.                         | `DESCOBERTA.md`    |
 
 ---
 
@@ -21,7 +21,7 @@
 
 | Ordem | Item                                 | Origem | MoSCoW | Risco | Depende de          |
 | ----: | ------------------------------------ | ------ | ------ | ----- | ------------------- |
-|     1 | HU-01 Cadastro e login de usuário    | D1     | Must   | Médio | —                   |
+|     1 | HU-01 Cadastro e login de usuário    | `DESCOBERTA.md` | Must   | Médio | —                   |
 |     2 | HU-02 Cadastrar e gerenciar anúncio  | N2     | Must   | Alto  | HU-01               |
 |     3 | HU-03 Buscar produtos                | N1     | Must   | Médio | HU-02               |
 |     4 | HU-04 Entrar em contato com vendedor | N4     | Must   | Médio | HU-01, HU-02, HU-03 |
@@ -40,6 +40,7 @@
 
 ## 3. Histórias de usuário e critérios de aceitação
 
+//Observação: CA -> Critério de Aceitação
 ### HU-01 — Cadastrar e gerenciar anúncio
 
 **Como** vendedor local,
@@ -342,31 +343,31 @@
 
 O sistema será destinado à compra e venda local entre moradores de **Palmas–TO**.
 
-**Origem:** D1.
+**Origem:** `DESCOBERTA.md`.
 
 #### RE-02 — Pagamento
 
 O sistema não realizará pagamentos online. O pagamento será combinado diretamente entre comprador e vendedor.
 
-**Origem:** D1.
+**Origem:** `DESCOBERTA.md`.
 
 #### RE-03 — Entrega
 
 O sistema não realizará cálculo automático de frete. A entrega ou retirada deverá ser combinada diretamente entre comprador e vendedor.
 
-**Origem:** D1.
+**Origem:** `DESCOBERTA.md`.
 
 #### RE-04 — Comunicação
 
 O sistema não possuirá chat em tempo real nesta versão. O contato inicial será realizado por meio de canais externos disponibilizados pelo vendedor.
 
-**Origem:** D1.
+**Origem:** `DESCOBERTA.md`.
 
 #### RE-05 — Avaliações
 
 O sistema não possuirá avaliação de usuários nesta versão do projeto.
 
-**Origem:** D1.
+**Origem:** `DESCOBERTA.md`.
 
 ### 6.2 Regras de negócio
 
@@ -374,7 +375,7 @@ O sistema não possuirá avaliação de usuários nesta versão do projeto.
 
 A plataforma permitirá anúncios de produtos novos ou usados, incluindo roupas, calçados, acessórios e outros itens compatíveis com a proposta do bazar.
 
-**Origem:** D1.
+**Origem:** DESCOBERTA.md.
 
 #### RN-02 — Status dos anúncios
 
@@ -384,25 +385,25 @@ Um anúncio poderá possuir os seguintes status:
 * **Reservado**
 * **Vendido**
 
-**Origem:** N5, D1.
+**Origem:** N5, `DESCOBERTA.md`.
 
 #### RN-03 — Anúncios vendidos
 
 Um anúncio marcado como **Vendido** não deverá ser apresentado como disponível para negociação.
 
-**Origem:** N5, D1.
+**Origem:** N5, `DESCOBERTA.md`.
 
 #### RN-04 — Responsabilidade pelas informações
 
 O vendedor será responsável pelas informações apresentadas em seu anúncio, incluindo descrição, preço, fotos e demais informações fornecidas.
 
-**Origem:** D1.
+**Origem:** `DESCOBERTA.md`.
 
 #### RN-05 — Comércio local
 
 Os anúncios deverão estar relacionados à negociação na região de Palmas–TO, de acordo com o escopo definido para o projeto.
 
-**Origem:** D1.
+**Origem:** `DESCOBERTA.md`.
 
 ---
 

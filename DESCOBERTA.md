@@ -31,7 +31,7 @@ Além disso, os anúncios podem ficar dispersos entre diferentes grupos, página
 
 # Fontes Consultadas
 
-| Fonte Consultada | Data da Consulta | Duração / Extensão |
+| Fonte Consultada (E -> Evidências)| Data da Consulta | Duração / Extensão |
 | :--- | :--- | :--- |
 | E1- Grupos locais de comércio e aplicativos de revenda(OLX e Facebook MarketPlace) | 2026-08-31 | 30 minutos de observação |
 | E2- Repositório Git da Equipe (`ES-Bazar-Online`) | 2026-08-19 a 2026-09-01 | Acompanhamento contínuo |
