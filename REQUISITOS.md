@@ -441,5 +441,5 @@ A equipe revisou as necessidades, cenários e escopo definidos durante a descobe
 
 | Data       | Versão | Alteração                                                                                                                                                                                    |
 | ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2026-09-10 | 1.0    | Criação do documento de requisitos com glossário, backlog, histórias de usuário, critérios de aceitação, casos de uso, requisitos não funcionais, restrições, regras de negócio e validação. |
+| 2026-09-03 | 1.0    | Criação do documento de requisitos com glossário, backlog, histórias de usuário, critérios de aceitação, casos de uso, requisitos não funcionais, restrições, regras de negócio e validação. |
 | 2026-09-10 | 1.1    | Adequação dos requisitos ao escopo definido na `DESCOBERTA.md` e ao MVP do projeto.                                                                                                          |
