@@ -375,7 +375,7 @@ O sistema não possuirá avaliação de usuários nesta versão do projeto.
 
 A plataforma permitirá anúncios de produtos novos ou usados, incluindo roupas, calçados, acessórios e outros itens compatíveis com a proposta do bazar.
 
-**Origem:** DESCOBERTA.md.
+**Origem:** `DESCOBERTA.md`.
 
 #### RN-02 — Status dos anúncios
 
