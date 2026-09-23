@@ -41,10 +41,11 @@ Sequência do fluxo principal (UC-01) em `diagrams/sequencia-publicar-anuncio.mm
 Estados do anúncio em `diagrams/estados-anuncio.mmd`.
 
 Lacunas encontradas pelo diagrama de estados, levadas ao `REQUISITOS.md`:
-Ambas as lacunas foram resolvidas: viraram CA-05.4 (cancelamento de reserva) e HU-08 (remoção de anúncio) no `REQUISITOS.md`.
 
 1. Transição Reservado → Disponível (cancelar reserva) não tem CA correspondente.
 2. Remoção de anúncio (qualquer estado → Removido) não tem CA própria; UC-04 só cita "remover" sem descrever o efeito (some do catálogo? fica visível no histórico do vendedor?).
+
+Ambas as lacunas foram resolvidas: viraram CA-05.4 (cancelamento de reserva) e HU-08 (remoção de anúncio) no `REQUISITOS.md`.
 
 ## Distribuição de responsabilidades
 
@@ -76,7 +77,3 @@ Recusas por dados incompletos (A1) e inválidos (A2) aparecem como mensagem na t
 |---|---|---|
 | CA-03.1 exige mostrar a forma de contato do vendedor — a tela de detalhe lê `contato` de Usuário? | Pendente | — |
 | RN-03 exige que anúncio Vendido não apareça como disponível — a tela de catálogo filtra por `status`? | Pendente | — |
-
-## Histórico de revisão
-
-- 2026-09-21: primeira versão, encontro 6.
