@@ -6,7 +6,7 @@ Diagrama em `diagrams/dominio.mmd`.
 
 | Classe | Origem no REQUISITOS.md | Observação |
 |---|---|---|
-| Usuário | HU-06 | Cadastro e login; `contato` fica aqui, não por anúncio — a confirmar (ver Decisões, D-02) |
+| Usuário | HU-06 | Cadastro e login;|
 | Anúncio | CA-01.1, CA-05.1, CA-07.1 | Reúne o que o glossário separa em "Anúncio" e "Produto"; RN-01 e RN-02 justificam `categoria` e `status` |
 | Foto | CA-01.1 | Anúncio tem "fotos" no plural — composição, não existe fora do anúncio |
 
@@ -27,7 +27,7 @@ Diagrama em `diagrams/dados.mmd`.
 
 Estratégia de identidade: chave artificial (`id`) em todas as tabelas; `email` como restrição de unicidade em `USUARIO`, não como chave primária.
 
-Apagamento: lógico, com coluna `ativo` em `USUARIO` e `ANUNCIO` — decisão sujeita a discussão (ver D-01).
+Apagamento: lógico, com coluna `ativo` em `USUARIO` e `ANUNCIO` —  (ver descisão D-01).
 
 Tempo: `data_criacao` em timestamp, não texto, para permitir ordenação e comparação (RNF-02 exige busca em até 3s).
 
