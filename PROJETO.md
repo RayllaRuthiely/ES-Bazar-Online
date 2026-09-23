@@ -66,14 +66,20 @@ Ambas as lacunas foram resolvidas: viraram CA-05.4 (cancelamento de reserva) e H
 
 Telas do fluxo principal (UC-01) em `prototipo/`:
 1. Meus anúncios (lista + botão "novo anúncio")
-2. Novo anúncio (formulário: fotos, descrição, preço, categoria)
+2. Novo anúncio (formulário: fotos, título, descrição, preço, categoria)
 3. Anúncio publicado (confirmação, status Disponível)
 
 Recusas por dados incompletos (A1) e inválidos (A2) aparecem como mensagem na tela 2, preservando o preenchimento.
 
 ## Conferência cruzada
 
-| Pergunta | Verificado | Resultado |
-|---|---|---|
-| CA-03.1 exige mostrar a forma de contato do vendedor — a tela de detalhe lê `contato` de Usuário? | Pendente | — |
-| RN-03 exige que anúncio Vendido não apareça como disponível — a tela de catálogo filtra por `status`? | Pendente | — |
+Comparação entre protótipo, modelo de domínio, modelo de dados e REQUISITOS.md.
+
+*Achados corrigidos:*
+- O formulário "Novo Anúncio" não tinha campo para o atributo titulo do modelo de domínio — adicionado.
+- O fluxo de publicação (UC-01) não tinha tela de confirmação de sucesso (exigida por CA-01.1) — adicionada.
+- O diagrama de estados do Anúncio revelou duas transições sem critério de aceitação correspondente (cancelar reserva, remover anúncio) — viraram CA-05.4 e HU-08 no REQUISITOS.md.
+
+*Pendente (depende de código rodando):*
+- Confirmar se a tela de detalhe realmente lê o campo contato de Usuário (CA-03.1).
+- Confirmar se a tela de catálogo filtra anúncios com status Vendido (RN-03).
