@@ -41,6 +41,7 @@ Sequência do fluxo principal (UC-01) em `diagrams/sequencia-publicar-anuncio.mm
 Estados do anúncio em `diagrams/estados-anuncio.mmd`.
 
 Lacunas encontradas pelo diagrama de estados, levadas ao `REQUISITOS.md`:
+Ambas as lacunas foram resolvidas: viraram CA-05.4 (cancelamento de reserva) e HU-08 (remoção de anúncio) no `REQUISITOS.md`.
 
 1. Transição Reservado → Disponível (cancelar reserva) não tem CA correspondente.
 2. Remoção de anúncio (qualquer estado → Removido) não tem CA própria; UC-04 só cita "remover" sem descrever o efeito (some do catálogo? fica visível no histórico do vendedor?).
@@ -57,7 +58,7 @@ Lacunas encontradas pelo diagrama de estados, levadas ao `REQUISITOS.md`:
 | Id | Decisão | Motivo | Consequência aceita |
 |---|---|---|---|
 | D-01 | Apagamento lógico (`ativo`) em Usuário e Anúncio | RN-04: vendedor é responsável pelo que anunciou; histórico deve sobreviver à remoção | Uma condição a mais em cada consulta |
-| D-02 | Contato fica em Usuário, não em Anúncio | CA-03.1 fala em "forma de contato disponibilizada pelo vendedor", no singular ligado ao vendedor | Vendedor não pode ter contato diferente por anúncio — a confirmar com a equipe |
+| D-02 | Contato fica em Usuário, não em Anúncio | CA-03.1 fala em "forma de contato disponibilizada pelo vendedor", no singular ligado ao vendedor | Vendedor não pode ter contato diferente por anúncio |
 | D-03 | Regras de validação do anúncio isoladas da tela, em módulo único | Teste de Parnas: categorias e campos obrigatórios têm chance real de mudar durante o semestre | Uma indireção a mais entre tela e regra |
 
 ## Protótipo
