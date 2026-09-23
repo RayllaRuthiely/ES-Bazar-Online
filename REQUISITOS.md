@@ -179,13 +179,13 @@
 **quando** o anúncio for consultado novamente,
 **então** o sistema deve apresentar o status atualizado.
 
----
 #### CA-05.4 — Cancelamento de reserva
 
 *Dado* que o anúncio está com status Reservado,
 *quando* o vendedor cancelar a reserva,
 *então* o sistema deve retornar o anúncio ao status Disponível.
 
+---
 ### HU-06 — Cadastro e login de usuário
 
 **Como** usuário,
