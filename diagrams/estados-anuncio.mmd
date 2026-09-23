@@ -1,0 +1,10 @@
+stateDiagram-v2
+  [*] --> Disponivel : anúncio publicado (CA-01.1)
+  Disponivel --> Reservado : vendedor marca reservado (CA-05.1)
+  Disponivel --> Vendido : vendedor marca vendido (CA-05.1)
+  Reservado --> Vendido : venda concluída (CA-05.1)
+  Reservado --> Disponivel : vendedor cancela reserva (lacuna: sem CA correspondente)
+  Disponivel --> Removido : vendedor remove (UC-04, lacuna: sem CA correspondente)
+  Reservado --> Removido : vendedor remove (UC-04, lacuna: sem CA correspondente)
+  Vendido --> Removido : vendedor remove (UC-04, lacuna: sem CA correspondente)
+  Removido --> [*]

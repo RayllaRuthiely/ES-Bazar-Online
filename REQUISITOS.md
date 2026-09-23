@@ -179,8 +179,13 @@
 **quando** o anúncio for consultado novamente,
 **então** o sistema deve apresentar o status atualizado.
 
----
+#### CA-05.4 — Cancelamento de reserva
 
+*Dado* que o anúncio está com status Reservado,
+*quando* o vendedor cancelar a reserva,
+*então* o sistema deve retornar o anúncio ao status Disponível.
+
+---
 ### HU-06 — Cadastro e login de usuário
 
 **Como** usuário,
@@ -236,6 +241,25 @@
 **então** o sistema deve apresentar as informações atualizadas.
 
 ---
+### HU-08 — Remover anúncio
+
+*Como* vendedor,
+*quero* remover um anúncio que cadastrei,
+*para* que ele pare de ser exibido quando eu não tiver mais interesse em vendê-lo.
+
+*Origem:* lacuna encontrada na modelagem (diagrama de estados, encontro 6).
+
+#### CA-08.1 — Remoção efetivada
+
+*Dado* que o vendedor possui um anúncio cadastrado, em qualquer status,
+*quando* ele optar por removê-lo,
+*então* o sistema deve deixar de exibir o anúncio no catálogo e nas buscas.
+
+#### CA-08.2 — Histórico preservado
+
+*Dado* que um anúncio foi removido,
+*quando* o vendedor consultar seus próprios anúncios,
+*então* o sistema deve continuar mostrando o anúncio removido, marcado como inativo, sem exibi-lo aos compradores.
 
 ## 4. Casos de uso
 
@@ -440,7 +464,8 @@ A equipe revisou as necessidades, cenários e escopo definidos durante a descobe
 
 ## 9. Histórico de revisão
 
-| Data       | Versão | Alteração                                                                                                                                                                                    |
-| ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Data| Versão| Alteração |
+| --- | ----- | --------- |
 | 2026-09-03 | 1.0    | Criação do documento de requisitos com glossário, backlog, histórias de usuário, critérios de aceitação, casos de uso, requisitos não funcionais, restrições, regras de negócio e validação. |
-| 2026-09-10 | 1.1    | Adequação dos requisitos ao escopo definido na `DESCOBERTA.md` e ao MVP do projeto.                                                                                                          |
+| 2026-09-10 | 1.1    | Adequação dos requisitos ao escopo definido na `DESCOBERTA.md` e ao MVP do projeto.|
+| 2026-09-23 | 1.2    | Adiciona CA-05.4 (cancelamento de reserva) e HU-08 (remover anúncio), lacunas encontradas na modelagem.|
