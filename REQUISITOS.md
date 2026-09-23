@@ -180,7 +180,6 @@
 **então** o sistema deve apresentar o status atualizado.
 
 ---
-markdown
 #### CA-05.4 — Cancelamento de reserva
 
 *Dado* que o anúncio está com status Reservado,
@@ -242,9 +241,6 @@ markdown
 **então** o sistema deve apresentar as informações atualizadas.
 
 ---
-markdown
----
-
 ### HU-08 — Remover anúncio
 
 *Como* vendedor,
@@ -468,7 +464,8 @@ A equipe revisou as necessidades, cenários e escopo definidos durante a descobe
 
 ## 9. Histórico de revisão
 
-| Data       | Versão | Alteração                                                                                                                                                                                    |
-| ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Data       | Versão | Alteração |
+-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 2026-09-03 | 1.0    | Criação do documento de requisitos com glossário, backlog, histórias de usuário, critérios de aceitação, casos de uso, requisitos não funcionais, restrições, regras de negócio e validação. |
-| 2026-09-10 | 1.1    | Adequação dos requisitos ao escopo definido na `DESCOBERTA.md` e ao MVP do projeto.                                                                                                          |
+| 2026-09-10 | 1.1    | Adequação dos requisitos ao escopo definido na `DESCOBERTA.md` e ao MVP do projeto.|
+| 2026-09-23 | 1.2    | Adiciona CA-05.4 (cancelamento de reserva) e HU-08 (remover anúncio), lacunas encontradas na modelagem |.

@@ -1,6 +1,6 @@
 # Projeto
 
-## Modelo de domínio
+## 1. Modelo de domínio
 
 Diagrama em `diagrams/dominio.mmd`.
 
@@ -21,7 +21,7 @@ Substantivos do glossário descartados do modelo, com motivo:
 | Status do anúncio | Atributo restrito de Anúncio | RN-02: disponível / reservado / vendido |
 | Localização | Fora do modelo, por ora | RE-01 fixa Palmas-TO como restrição do sistema inteiro, não um dado por anúncio |
 
-## Modelo de dados
+## 2.Modelo de dados
 
 Diagrama em `diagrams/dados.mmd`.
 
@@ -35,7 +35,7 @@ Arquivo: `FOTO` guarda apenas a URL/caminho da imagem; o arquivo em si fica fora
 
 Segurança: `senha_hash`, nunca senha em texto simples (RNF-04).
 
-## Comportamento
+## 3.Comportamento
 
 Sequência do fluxo principal (UC-01) em `diagrams/sequencia-publicar-anuncio.mmd`.
 Estados do anúncio em `diagrams/estados-anuncio.mmd`.
@@ -47,14 +47,14 @@ Lacunas encontradas pelo diagrama de estados, levadas ao `REQUISITOS.md`:
 
 Ambas as lacunas foram resolvidas: viraram CA-05.4 (cancelamento de reserva) e HU-08 (remoção de anúncio) no `REQUISITOS.md`.
 
-## Distribuição de responsabilidades
+## 4.Distribuição de responsabilidades
 
 | Parte | Sabe | Faz |
 |---|---|---|
 | Anúncio | próprio status, próprias fotos | decide transições de status permitidas; valida-se antes de publicar |
 | Regra de validação | campos obrigatórios do anúncio | aprova ou recusa o cadastro, isolada da tela |
 
-## Decisões de projeto
+## 5.Decisões de projeto
 
 | Id | Decisão | Motivo | Consequência aceita |
 |---|---|---|---|
@@ -62,7 +62,7 @@ Ambas as lacunas foram resolvidas: viraram CA-05.4 (cancelamento de reserva) e H
 | D-02 | Contato fica em Usuário, não em Anúncio | CA-03.1 fala em "forma de contato disponibilizada pelo vendedor", no singular ligado ao vendedor | Vendedor não pode ter contato diferente por anúncio |
 | D-03 | Regras de validação do anúncio isoladas da tela, em módulo único | Teste de Parnas: categorias e campos obrigatórios têm chance real de mudar durante o semestre | Uma indireção a mais entre tela e regra |
 
-## Protótipo
+## 6.Protótipo
 
 Telas do fluxo principal (UC-01) em `prototipo/`:
 1. Meus anúncios (lista + botão "novo anúncio")
@@ -71,7 +71,7 @@ Telas do fluxo principal (UC-01) em `prototipo/`:
 
 Recusas por dados incompletos (A1) e inválidos (A2) aparecem como mensagem na tela 2, preservando o preenchimento.
 
-## Conferência cruzada
+## 7.Conferência cruzada
 
 Comparação entre protótipo, modelo de domínio, modelo de dados e REQUISITOS.md.
 
@@ -83,3 +83,8 @@ Comparação entre protótipo, modelo de domínio, modelo de dados e REQUISITOS.
 *Pendente (depende de código rodando):*
 - Confirmar se a tela de detalhe realmente lê o campo contato de Usuário (CA-03.1).
 - Confirmar se a tela de catálogo filtra anúncios com status Vendido (RN-03).
+
+## 8.Histórico de revisão 
+| Data | Versão | Alteração |
+| --- | --- | --- |
+| 2026-09-23 | 1.0 | Versão inicial do documento de projeto: modelo de domínio, modelo de dados, comportamento, responsabilidades, decisões de projeto, protótipo e conferência cruzada. |
