@@ -47,7 +47,7 @@
 **quero** cadastrar e gerenciar anúncios de produtos,
 **para** divulgar meus itens e facilitar sua venda para compradores de Palmas–TO.
 
-**Origem:** N2, confirmada em D1.
+**Origem:** N2, confirmada em `DESCOBERTA.md`.
 
 #### CA-01.1 — Cadastro do anúncio
 
@@ -75,7 +75,7 @@
 **quero** pesquisar produtos disponíveis,
 **para** encontrar itens de meu interesse em Palmas–TO.
 
-**Origem:** N1, confirmada em D1.
+**Origem:** N1, confirmada em `DESCOBERTA.md`.
 
 #### CA-02.1 — Produto encontrado
 
@@ -103,7 +103,7 @@
 **quero** entrar em contato diretamente com o vendedor,
 **para** negociar o produto e combinar a retirada e o pagamento.
 
-**Origem:** N4, confirmada em D1.
+**Origem:** N4, confirmada em `DESCOBERTA.md`.
 
 #### CA-03.1 — Contato disponível
 
@@ -131,7 +131,7 @@
 **quero** filtrar produtos por categoria e faixa de preço,
 **para** encontrar mais facilmente os itens que correspondem ao que procuro.
 
-**Origem:** N3, confirmada em D1.
+**Origem:** N3, confirmada em `DESCOBERTA.md`.
 
 #### CA-04.1 — Filtro aplicado
 
@@ -159,7 +159,7 @@
 **quero** alterar o status do meu anúncio,
 **para** informar se o produto está disponível, reservado ou vendido.
 
-**Origem:** N5, confirmada em D1.
+**Origem:** N5, confirmada em `DESCOBERTA.md`.
 
 #### CA-05.1 — Alteração de status
 
@@ -187,7 +187,7 @@
 **quero** criar uma conta e realizar login,
 **para** acessar as funcionalidades destinadas aos usuários cadastrados.
 
-**Origem:** D1.
+**Origem:** `DESCOBERTA.md`.
 
 #### CA-06.1 — Cadastro realizado
 
@@ -215,7 +215,7 @@
 **quero** visualizar os detalhes de um produto,
 **para** avaliar o item antes de entrar em contato com o vendedor.
 
-**Origem:** N1, confirmada em D1.
+**Origem:** N1, confirmada em `DESCOBERTA.md`.
 
 #### CA-07.1 — Detalhes exibidos
 
