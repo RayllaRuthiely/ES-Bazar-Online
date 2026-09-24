@@ -41,7 +41,35 @@
 ## 3. Histórias de usuário e critérios de aceitação
 
 //Observação: CA -> Critério de Aceitação
-### HU-01 — Cadastrar e gerenciar anúncio
+### HU-01 — Cadastro e login de usuário
+
+**Como** usuário,
+**quero** criar uma conta e realizar login,
+**para** acessar as funcionalidades destinadas aos usuários cadastrados.
+
+**Origem:** `DESCOBERTA.md`.
+
+#### CA-06.1 — Cadastro realizado
+
+**Dado** que o usuário informou os dados necessários,
+**quando** confirmar o cadastro,
+**então** o sistema deve registrar a conta.
+
+#### CA-06.2 — Cadastro recusado
+
+**Dado** que os dados obrigatórios não foram preenchidos corretamente,
+**quando** o usuário tentar concluir o cadastro,
+**então** o sistema deve recusar a operação e informar o problema.
+
+#### CA-06.3 — Efeito persistente
+
+**Dado** que o cadastro foi concluído,
+**quando** o usuário acessar novamente o sistema,
+**então** sua conta deve continuar registrada.
+
+---
+
+### HU-02 — Cadastrar e gerenciar anúncio
 
 **Como** vendedor local,
 **quero** cadastrar e gerenciar anúncios de produtos,
@@ -69,7 +97,7 @@
 
 ---
 
-### HU-02 — Buscar produtos
+### HU-03 — Buscar produtos
 
 **Como** comprador local,
 **quero** pesquisar produtos disponíveis,
@@ -97,7 +125,7 @@
 
 ---
 
-### HU-03 — Entrar em contato com o vendedor
+### HU-04 — Entrar em contato com o vendedor
 
 **Como** comprador local,
 **quero** entrar em contato diretamente com o vendedor,
@@ -125,7 +153,7 @@
 
 ---
 
-### HU-04 — Filtrar produtos
+### HU-05 — Filtrar produtos
 
 **Como** comprador local,
 **quero** filtrar produtos por categoria e faixa de preço,
@@ -153,7 +181,7 @@
 
 ---
 
-### HU-05 — Gerenciar status do anúncio
+### HU-06 — Gerenciar status do anúncio
 
 **Como** vendedor,
 **quero** alterar o status do meu anúncio,
@@ -178,34 +206,6 @@
 **Dado** que o status do anúncio foi alterado,
 **quando** o anúncio for consultado novamente,
 **então** o sistema deve apresentar o status atualizado.
-
----
-
-### HU-06 — Cadastro e login de usuário
-
-**Como** usuário,
-**quero** criar uma conta e realizar login,
-**para** acessar as funcionalidades destinadas aos usuários cadastrados.
-
-**Origem:** `DESCOBERTA.md`.
-
-#### CA-06.1 — Cadastro realizado
-
-**Dado** que o usuário informou os dados necessários,
-**quando** confirmar o cadastro,
-**então** o sistema deve registrar a conta.
-
-#### CA-06.2 — Cadastro recusado
-
-**Dado** que os dados obrigatórios não foram preenchidos corretamente,
-**quando** o usuário tentar concluir o cadastro,
-**então** o sistema deve recusar a operação e informar o problema.
-
-#### CA-06.3 — Efeito persistente
-
-**Dado** que o cadastro foi concluído,
-**quando** o usuário acessar novamente o sistema,
-**então** sua conta deve continuar registrada.
 
 ---
 
