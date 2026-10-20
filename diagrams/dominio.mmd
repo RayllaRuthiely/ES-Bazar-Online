@@ -1,0 +1,21 @@
+classDiagram
+  direction LR
+  class Usuario["Usuário"] {
+    nome
+    email
+    contato
+  }
+  class Anuncio["Anúncio"] {
+    titulo
+    descricao
+    preco
+    categoria
+    status
+    dataCriacao
+  }
+  class Foto["Foto"] {
+    url
+    ordem
+  }
+  Usuario "1" --> "0..*" Anuncio : publica
+  Anuncio "1" *-- "1..*" Foto : possui

@@ -1,0 +1,16 @@
+sequenceDiagram
+  actor V as Vendedor
+  participant T as Tela de cadastro de anúncio
+  participant R as Regra de validação
+  participant A as Repositório de anúncios
+  V->>T: informa fotos, descrição, preço, categoria
+  T->>R: valida dados obrigatórios
+  alt dados completos e válidos
+    R-->>T: validação aprovada
+    T->>A: registra anúncio
+    A-->>T: anúncio criado, status Disponível
+    T-->>V: anúncio publicado com sucesso
+  else dados incompletos ou inválidos
+    R-->>T: recusa, com o campo pendente
+    T-->>V: solicita preenchimento (A1/A2)
+  end
