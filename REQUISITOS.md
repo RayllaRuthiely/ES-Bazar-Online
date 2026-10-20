@@ -41,13 +41,41 @@
 ## 3. Histórias de usuário e critérios de aceitação
 
 //Observação: CA -> Critério de Aceitação
-### HU-01 — Cadastrar e gerenciar anúncio
+### HU-01 — Cadastro e login de usuário
+
+**Como** usuário,
+**quero** criar uma conta e realizar login,
+**para** acessar as funcionalidades destinadas aos usuários cadastrados.
+
+**Origem:** `DESCOBERTA.md`.
+
+#### CA-06.1 — Cadastro realizado
+
+**Dado** que o usuário informou os dados necessários,
+**quando** confirmar o cadastro,
+**então** o sistema deve registrar a conta.
+
+#### CA-06.2 — Cadastro recusado
+
+**Dado** que os dados obrigatórios não foram preenchidos corretamente,
+**quando** o usuário tentar concluir o cadastro,
+**então** o sistema deve recusar a operação e informar o problema.
+
+#### CA-06.3 — Efeito persistente
+
+**Dado** que o cadastro foi concluído,
+**quando** o usuário acessar novamente o sistema,
+**então** sua conta deve continuar registrada.
+
+---
+
+### HU-02 — Cadastrar e gerenciar anúncio
 
 **Como** vendedor local,
 **quero** cadastrar e gerenciar anúncios de produtos,
 **para** divulgar meus itens e facilitar sua venda para compradores de Palmas–TO.
 
-**Origem:** N2, confirmada em D1.
+**Origem:** N2, confirmada em `DESCOBERTA.md`.
 
 #### CA-01.1 — Cadastro do anúncio
 
@@ -69,13 +97,13 @@
 
 ---
 
-### HU-02 — Buscar produtos
+### HU-03 — Buscar produtos
 
 **Como** comprador local,
 **quero** pesquisar produtos disponíveis,
 **para** encontrar itens de meu interesse em Palmas–TO.
 
-**Origem:** N1, confirmada em D1.
+**Origem:** N1, confirmada em `DESCOBERTA.md`.
 
 #### CA-02.1 — Produto encontrado
 
@@ -97,13 +125,13 @@
 
 ---
 
-### HU-03 — Entrar em contato com o vendedor
+### HU-04 — Entrar em contato com o vendedor
 
 **Como** comprador local,
 **quero** entrar em contato diretamente com o vendedor,
 **para** negociar o produto e combinar a retirada e o pagamento.
 
-**Origem:** N4, confirmada em D1.
+**Origem:** N4, confirmada em `DESCOBERTA.md`.
 
 #### CA-03.1 — Contato disponível
 
@@ -125,13 +153,13 @@
 
 ---
 
-### HU-04 — Filtrar produtos
+### HU-05 — Filtrar produtos
 
 **Como** comprador local,
 **quero** filtrar produtos por categoria e faixa de preço,
 **para** encontrar mais facilmente os itens que correspondem ao que procuro.
 
-**Origem:** N3, confirmada em D1.
+**Origem:** N3, confirmada em `DESCOBERTA.md`.
 
 #### CA-04.1 — Filtro aplicado
 
@@ -153,13 +181,13 @@
 
 ---
 
-### HU-05 — Gerenciar status do anúncio
+### HU-06 — Gerenciar status do anúncio
 
 **Como** vendedor,
 **quero** alterar o status do meu anúncio,
 **para** informar se o produto está disponível, reservado ou vendido.
 
-**Origem:** N5, confirmada em D1.
+**Origem:** N5, confirmada em `DESCOBERTA.md`.
 
 #### CA-05.1 — Alteração de status
 
@@ -186,33 +214,6 @@
 *então* o sistema deve retornar o anúncio ao status Disponível.
 
 ---
-### HU-06 — Cadastro e login de usuário
-
-**Como** usuário,
-**quero** criar uma conta e realizar login,
-**para** acessar as funcionalidades destinadas aos usuários cadastrados.
-
-**Origem:** D1.
-
-#### CA-06.1 — Cadastro realizado
-
-**Dado** que o usuário informou os dados necessários,
-**quando** confirmar o cadastro,
-**então** o sistema deve registrar a conta.
-
-#### CA-06.2 — Cadastro recusado
-
-**Dado** que os dados obrigatórios não foram preenchidos corretamente,
-**quando** o usuário tentar concluir o cadastro,
-**então** o sistema deve recusar a operação e informar o problema.
-
-#### CA-06.3 — Efeito persistente
-
-**Dado** que o cadastro foi concluído,
-**quando** o usuário acessar novamente o sistema,
-**então** sua conta deve continuar registrada.
-
----
 
 ### HU-07 — Visualizar detalhes do produto
 
@@ -220,7 +221,7 @@
 **quero** visualizar os detalhes de um produto,
 **para** avaliar o item antes de entrar em contato com o vendedor.
 
-**Origem:** N1, confirmada em D1.
+**Origem:** N1, confirmada em `DESCOBERTA.md`.
 
 #### CA-07.1 — Detalhes exibidos
 

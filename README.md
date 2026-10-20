@@ -36,10 +36,10 @@ A plataforma terá como foco facilitar a busca, divulgação e negociação de p
 ## Equipe
 
 - Raylla Ruthiely Gomes Santana | https://github.com/RayllaRuthiely
-- Alana Farias Silva | alana.fariax@gmail.com
-- Samuel Felipe De Sena Estevão | Felipe.sena@mail.uft.edu.br
-- João Guilherme Aguiar Lustosa | joaogal0425@gmail.com
-- Maria Eduarda Rodrigues Lima | eduarda.lima@mail.uft.edu.br
+- Alana Farias Silva | https://github.com/alana1789
+- Samuel Felipe De Sena Estevão | https://github.com/felipe-sena39
+- João Guilherme Aguiar Lustosa | https://github.com/jguiaguiar
+- Maria Eduarda Rodrigues Lima | https://github.com/edoardarl
 
 ## Tecnologias
 
