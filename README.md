@@ -51,7 +51,7 @@ As instruções para instalação e execução do projeto serão adicionadas con
 
 ## Status
 
-🚧 Projeto em desenvolvimento.
+Projeto em desenvolvimento.
 
 ## Licença
 
