@@ -1,0 +1,10 @@
+flowchart LR
+  subgraph C["Computador ou celular do usuário"]
+    NAV["Navegador<br/>(frontend)"]
+  end
+  subgraph S["Servidor da aplicação"]
+    P["Backend<br/>um único processo<br/>(monólito modular)"]
+  end
+  NAV <-->|"HTTPS"| P
+  P <--> DB[("Banco de dados<br/>relacional")]
+  P <--> F["Armazenamento das fotos<br/>(local a decidir, A-06)"]
