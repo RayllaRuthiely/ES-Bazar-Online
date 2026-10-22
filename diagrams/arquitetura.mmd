@@ -1,0 +1,11 @@
+flowchart LR
+  subgraph Navegador
+    F["Frontend<br/>telas do Bazar Online"]
+  end
+  subgraph Backend
+    direction TB
+    R["Borda<br/>rotas e controladores"] --> D["Domínio<br/>Usuário, Anúncio, Foto<br/>regras de validação (D-03)"] --> P["Persistência<br/>repositórios"]
+  end
+  B[("Banco<br/>USUARIO, ANUNCIO, FOTO")]
+  Navegador <-->|requisição e resposta| Backend
+  Backend <-->|consultas e gravações| B
