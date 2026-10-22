@@ -28,6 +28,7 @@
 |     5 | HU-05 Filtrar produtos               | N3     | Should | Médio | HU-03               |
 |     6 | HU-06 Gerenciar status do anúncio    | N5     | Should | Médio | HU-02               |
 |     7 | HU-07 Visualizar detalhes do produto | N1     | Should | Baixo | HU-02, HU-03        |
+|     8 | HU-08 Remover Anúncio                |Modelagem| Must  | Médio | HU 02               |
 
 ### Classificação MoSCoW
 
