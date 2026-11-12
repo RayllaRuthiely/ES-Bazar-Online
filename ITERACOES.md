@@ -119,6 +119,18 @@ Itens selecionados do backlog
 | HU-06 | Gerenciar status do anúncio | Should | 5 |
 | HU-08 | Remover anúncio | Must | 3 |
 
+
+### Dívida Técnica Mapeada (Capítulo 10)
+
+A partir da Iteração 3, a equipe destina **2 pontos de reserva por iteração** para trabalho técnico, escolhendo a dívida que cabe na reserva e maximiza o custo de carregar evitado nas próximas histórias.
+
+| ID | Issue | Dívida | Origem | Custo de carregar | Custo de pagar | Gatilho | Decisão na Iteração 3 |
+| :--- | :---: | :--- | :--- | :--- | :--- | :--- | :--- |
+| **DT-01** | [#9](https://github.com) | Lista de status permitidos (`Disponível`, `Reservado`, `Vendido` - `RN-02`) e regras de visibilidade (`RN-03`) espalhadas nas telas e rotas de catálogo, busca e detalhes (`HU-03`, `HU-05`, `HU-07`) | Atalho da Iteração 1 para acelerar a entrega do catálogo inicial antes da `HU-06` e `HU-08` | **1,5 ponto** por alteração nas regras de exibição ou inclusão de novo status | **2 pontos** | Antes de implementar o gerenciamento de status (`HU-06`) e remoção de anúncio (`HU-08`) | **Selecionada na reserva (2 pts)** |
+| **DT-02** | [#10](https://github.com) | Lista de categorias de produtos (`RN-01`) escrita diretamente no código (*hardcoded*) no formulário de anúncio (`HU-02`) e no filtro (`HU-05`) | Pressa para montar o protótipo funcional na Iteração 1 | **1 ponto** a cada nova categoria adicionada ou renomeada | **2 pontos** | Antes de implementar os filtros avançados por categoria (`HU-05`) | Aguardando gatilho |
+| **DT-03** | [#11](https://github.com) | Validação de comércio local em Palmas–TO (`RE-01` / `RN-05`) e campos obrigatórios (`CA-01.2`) feita apenas no frontend | Foco inicial na interface do vendedor (`HU-02`) | **1 ponto** por ajuste nas regras de validação de anúncio | **2 pontos** | Antes de abrir o cadastro de anúncios para testes externos | Aguardando gatilho |
+
+
 Critérios de aceitação a verificar
 
 - O comprador deve conseguir visualizar a forma de contato disponibilizada pelo vendedor.
