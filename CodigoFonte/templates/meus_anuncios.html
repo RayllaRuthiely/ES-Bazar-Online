@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="pagina-meus-anuncios">
+    <!-- Cabeçalho com Título e Botão Voltar -->
+    <div class="topo-meus-anuncios">
+        <h1>Meus anúncios</h1>
+        <a href="/catalogo" class="btn-voltar">Voltar</a>
+    </div>
+
+    <!-- Lista de Anúncios do Usuário -->
+    <div class="lista-meus-anuncios">
+        {% for produto in produtos %}
+        <div class="card-meu-anuncio">
+            <p class="titulo-preco-anuncio">
+                {{ produto.nome }} &bull; R$ {{ "%.2f"|format(produto.preco)|replace('.', ',') }}
+            </p>
+
+            <div class="acoes-meu-anuncio">
+                <!-- Seletor de Status (envia automaticamente ao mudar) -->
+                <form action="/alterar-status/{{ produto.id }}" method="POST" class="form-status">
+                    <select name="status" onchange="this.form.submit()">
+                        <option value="Disponível" {% if produto.status == 'Disponível' %}selected{% endif %}>Status: Disponível</option>
+                        <option value="Reservado" {% if produto.status == 'Reservado' %}selected{% endif %}>Status: Reservado</option>
+                        <option value="Vendido" {% if produto.status == 'Vendido' %}selected{% endif %}>Status: Vendido</option>
+                    </select>
+                </form>
+
+                <!-- Botão Remover -->
+                <form action="/remover-anuncio/{{ produto.id }}" method="POST" class="form-remover">
+                    <button type="submit" class="btn-remover">Remover</button>
+                </form>
+            </div>
+        </div>
+        {% else %}
+        <div class="alerta-prototipo">
+            Você ainda não possui anúncios cadastrados
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

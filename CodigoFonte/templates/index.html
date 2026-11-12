@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="pagina-catalogo">
+    <header class="topo-catalogo">
+        <h1>Catálogo</h1>
+        <a href="/meus-anuncios" class="btn-outline">Meus anúncios</a>
+    </header>
+
+    <form class="filtros-catalogo" method="GET" action="/catalogo">
+        <div class="campo-busca">
+            <input type="text" name="busca" placeholder="Buscar produto" value="{{ request.args.get('busca', '') }}">
+            <span class="icone-lupa">🔍</span>
+        </div>
+
+        <div class="linha-selects">
+            <select name="categoria" onchange="this.form.submit()">
+                <option value="">Categoria</option>
+                <option value="Roupas" {% if request.args.get('categoria') == 'Roupas' %}selected{% endif %}>Roupas</option>
+                <option value="Calçados" {% if request.args.get('categoria') == 'Calçados' %}selected{% endif %}>Calçados</option>
+                <option value="Acessórios" {% if request.args.get('categoria') == 'Acessórios' %}selected{% endif %}>Acessórios</option>
+                <option value="Outros" {% if request.args.get('categoria') == 'Outros' %}selected{% endif %}>Outros</option>
+            </select>
+
+            <select name="preco" onchange="this.form.submit()">
+                <option value="">Faixa de preço</option>
+                <option value="ate-30" {% if request.args.get('preco') == 'ate-30' %}selected{% endif %}>Até R$ 30,00</option>
+                <option value="30-60" {% if request.args.get('preco') == '30-60' %}selected{% endif %}>R$ 30,00 a R$ 60,00</option>
+                <option value="acima-60" {% if request.args.get('preco') == 'acima-60' %}selected{% endif %}>Acima de R$ 60,00</option>
+            </select>
+        </div>
+    </form>
+
+    <div class="lista-produtos">
+        {% for produto in produtos %}
+        <a href="/produto/{{ produto.id }}" class="card-produto">
+            <div class="box-foto">
+                {% if produto.foto %}
+                    <img src="{{ produto.foto }}" alt="{{ produto.nome }}">
+                {% else %}
+                    <span>Foto</span>
+                {% endif %}
+            </div>
+            <div class="info-produto">
+                <h3>{{ produto.nome }}</h3>
+                <p class="preco">R$ {{ "%.2f"|format(produto.preco)|replace('.', ',') }}</p>
+                <span class="tag-status">{{ produto.status }}</span>
+            </div>
+        </a>
+        {% else %}
+            <div class="alerta-prototipo">Nenhum produto encontrado</div>
+        {% endfor %}
+    </div>
+
+    <div class="rodape-acao">
+        <a href="/novo-anuncio" class="btn-preto-grande">Novo Anúncio</a>
+    </div>
+</div>
+{% endblock %}
+
