@@ -135,12 +135,69 @@ Uma tarefa será considerada pronta somente quando:
 
 
 
-# 5. Histórico de revisão do processo
+# 5. Revisão de código
+
+Todo Pull Request deverá passar por uma revisão realizada por pelo menos um integrante diferente de seu autor.
+
+A revisão deverá utilizar a lista de verificação definida no CONTRIBUTING.md e disponibilizada no arquivo .github/pull_request_template.md.
+
+Durante a revisão, deverão ser observados os seguintes aspectos:
+
+- Atendimento aos critérios de aceitação;
+- Conformidade com os requisitos;
+- Organização e responsabilidades do código;
+- Compatibilidade das interfaces e dos parâmetros;
+- Legibilidade e manutenibilidade;
+- Tratamento dos diferentes casos de uso;
+- Execução dos testes pertinentes;
+- Atualização da documentação;
+- Rastreabilidade entre o Pull Request e a tarefa correspondente.
+
+5.1 Classificação dos comentários
+
+Os comentários realizados durante as revisões deverão ser classificados em quatro categorias:
+
+- **Bloqueia:** problemas que precisam ser corrigidos antes da aprovação do Pull Request.
+- **Sugere:** melhorias recomendadas, mas que não impedem a integração.
+- **Pergunta:** dúvidas ou solicitações de esclarecimento sobre a implementação.
+- **Elogia:** reconhecimento de soluções ou práticas bem realizadas.
+
+Os comentários deverão ser objetivos e respeitosos, priorizando a melhoria do código e evitando críticas pessoais.
 
 
-| Data | Versão | Alteração |
-| --- | --- | --- |
-| 2026-08-20 | 1.0 | Versão inicial do processo |
+
+# 6. Gerenciamento da dívida técnica
+
+Durante o desenvolvimento, poderão ser identificados problemas ou soluções provisórias que facilitem a implementação imediata, mas que possam gerar dificuldades futuras de manutenção e evolução do sistema.
+
+Esses problemas deverão ser registrados no backlog como dívida técnica, mesmo quando não forem corrigidos imediatamente.
+
+6.1 Registro da dívida técnica
+
+Cada dívida técnica deverá apresentar os seguintes campos:
+
+- **Localização:** arquivo, classe, função ou parte do sistema onde o problema foi identificado.
+- **Origem:** motivo pelo qual a dívida foi gerada.
+- **Custo de carregar:** esforço ou dificuldade adicional causada pela manutenção da dívida.
+- **Custo de pagar:** estimativa do esforço necessário para corrigir o problema, expressa em pontos.
+- **Gatilho:** situação ou condição que indicará o momento adequado para resolver a dívida.
+
+6.2 Reserva técnica da iteração 3
+
+Na iteração 3, a equipe deverá avaliar as dívidas técnicas registradas e selecionar aquelas que poderão ser resolvidas utilizando a reserva técnica disponível.
+
+Os itens selecionados deverão ser identificados no backlog, considerando sua estimativa em pontos e a capacidade disponível da equipe.
+
+A seleção deverá priorizar problemas que possam comprometer a manutenção, a organização ou a evolução do sistema.
+
+
+# 7. Histórico de revisão do processo
+
+| Data       | Versão | Alteração |
+|------------|--------|-----------|
+| 2026-08-20 | 1.0    | Versão inicial do processo |
+| 2026-11-12 | 1.1    | Inclusão dos procedimentos de revisão de código, classificação dos comentários e gerenciamento da dívida técnica |
+
 
 
 
