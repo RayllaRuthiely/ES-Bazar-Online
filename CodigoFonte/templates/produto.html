@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="pagina-detalhe">
+    <div class="topo-voltar">
+        <a href="/catalogo" class="btn-voltar">Voltar</a>
+    </div>
+
+    <!-- Mensagens de aviso do protótipo -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <div class="alerta-prototipo">{{ msg }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="box-foto-grande">
+        {% if produto.foto %}
+            <img src="{{ produto.foto }}" alt="{{ produto.nome }}">
+        {% else %}
+            <span>Foto</span>
+        {% endif %}
+    </div>
+
+    <div class="detalhes-texto">
+        <h2>{{ produto.nome }}</h2>
+        <p><strong>Descrição:</strong> {{ produto.descricao }}</p>
+        <p><strong>Preço:</strong> R$ {{ "%.2f"|format(produto.preco)|replace('.', ',') }}</p>
+        <p><strong>Categoria:</strong> {{ produto.categoria }}</p>
+        <p class="linha-status">
+            <strong>Status:</strong> 
+            <span class="tag-status">{{ produto.status }}</span>
+        </p>
+    </div>
+
+    <form action="/produto/{{ produto.id }}/contato" method="POST">
+        <button type="submit" class="btn-preto-largo">Entrar em contato</button>
+    </form>
+</div>
+{% endblock %}

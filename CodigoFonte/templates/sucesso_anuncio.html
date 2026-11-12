@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="pagina-sucesso">
+    <!-- Círculo Verde com Check -->
+    <div class="circulo-sucesso">
+        <span class="check-branco">&#10004;</span>
+    </div>
+
+    <h1 class="titulo-sucesso">Anúncio ja publicado com sucesso</h1>
+
+    <!-- Resumo do Produto Criado -->
+    <div class="card-produto card-sucesso">
+        <div class="box-foto">
+            {% if produto.foto %}
+                <img src="{{ produto.foto }}" alt="{{ produto.nome }}">
+            {% else %}
+                <span>Foto</span>
+            {% endif %}
+        </div>
+        <div class="info-produto">
+            <h3>{{ produto.nome }}</h3>
+            <p class="preco">R$ {{ "%.2f"|format(produto.preco)|replace('.', ',') }}</p>
+            <span class="tag-status">{{ produto.status }}</span>
+        </div>
+    </div>
+
+    <!-- Botões Inferiores -->
+    <div class="linha-botoes-sucesso">
+        <a href="/meus-anuncios" class="btn-sucesso-branco">Ver meus anúncios</a>
+        <a href="/catalogo" class="btn-sucesso-preto">Voltar ao catálogo</a>
+    </div>
+</div>
+{% endblock %}
