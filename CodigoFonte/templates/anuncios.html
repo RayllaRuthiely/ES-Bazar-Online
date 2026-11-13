@@ -4,37 +4,14 @@
 <div class="pagina-novo-anuncio">
     <h1 class="titulo-novo-anuncio">Novo Anúncio</h1>
 
-    <!-- Mensagem de erro do protótipo -->
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for msg in messages %}
-                <div class="alerta-prototipo">{{ msg }}</div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
+    <!-- TODO (João Guilherme): Criar aqui o formulário de cadastro de produto.
+         Requisitos para integrar com o app.py:
+         1. A tag <form> deve enviar para action="/novo-anuncio" com method="POST".
+         2. Criar campo de upload de foto (name="foto").
+         3. Criar inputs para Título (name="titulo"), Descrição (name="descricao") e Preço (name="preco").
+         4. Criar um <select> para Categoria (name="categoria") com opções como Roupas, Calçados, Acessórios e Outros.
+         5. Adicionar um link/botão para cancelar (voltando para /catalogo) e um botão type="submit" para publicar.
+    -->
 
-    <form action="/novo-anuncio" method="POST" enctype="multipart/form-data">
-        <label for="input-foto" class="box-upload-foto">
-            <span>Adicionar fotos</span>
-            <input type="file" id="input-foto" name="foto" accept="image/*" hidden>
-        </label>
-
-        <input type="text" name="titulo" placeholder="Título">
-        <input type="text" name="descricao" placeholder="Descrição">
-        <input type="number" step="0.01" name="preco" placeholder="Preço">
-
-        <select name="categoria">
-            <option value="" selected>Categoria</option>
-            <option value="Roupas">Roupas</option>
-            <option value="Calçados">Calçados</option>
-            <option value="Acessórios">Acessórios</option>
-            <option value="Outros">Outros</option>
-        </select>
-
-        <div class="linha-botoes-anuncio">
-            <a href="/catalogo" class="btn-cancelar">Cancelar</a>
-            <button type="submit" class="btn-publicar">Publicar</button>
-        </div>
-    </form>
 </div>
 {% endblock %}

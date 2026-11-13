@@ -6,36 +6,21 @@
         <a href="/catalogo" class="btn-voltar">Voltar</a>
     </div>
 
-    <!-- Mensagens de aviso do protótipo -->
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for msg in messages %}
-                <div class="alerta-prototipo">{{ msg }}</div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
+    <!-- TODO (Maria Eduarda): Construir a visualização completa do produto.
+         Requisitos para integrar com a rota /produto/<id> do app.py:
+         
+         1. Exibir a foto do produto ({{ produto.foto }}) ou um espaço padrão caso não tenha foto.
+         2. Exibir as informações detalhadas recebidas na variável 'produto':
+            - Nome ({{ produto.nome }})
+            - Descrição ({{ produto.descricao }})
+            - Preço ({{ produto.preco }})
+            - Categoria ({{ produto.categoria }})
+            - Status ({{ produto.status }})
+         3. Criar formulário de contato:
+            - Tag <form> enviando para action="/produto/{{ produto.id }}/contato" com method="POST".
+            - Botão type="submit" com o texto "Entrar em contato".
+    -->
 
-    <div class="box-foto-grande">
-        {% if produto.foto %}
-            <img src="{{ produto.foto }}" alt="{{ produto.nome }}">
-        {% else %}
-            <span>Foto</span>
-        {% endif %}
-    </div>
-
-    <div class="detalhes-texto">
-        <h2>{{ produto.nome }}</h2>
-        <p><strong>Descrição:</strong> {{ produto.descricao }}</p>
-        <p><strong>Preço:</strong> R$ {{ "%.2f"|format(produto.preco)|replace('.', ',') }}</p>
-        <p><strong>Categoria:</strong> {{ produto.categoria }}</p>
-        <p class="linha-status">
-            <strong>Status:</strong> 
-            <span class="tag-status">{{ produto.status }}</span>
-        </p>
-    </div>
-
-    <form action="/produto/{{ produto.id }}/contato" method="POST">
-        <button type="submit" class="btn-preto-largo">Entrar em contato</button>
-    </form>
 </div>
 {% endblock %}
+

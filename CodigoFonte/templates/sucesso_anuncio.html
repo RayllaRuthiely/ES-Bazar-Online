@@ -2,33 +2,22 @@
 
 {% block content %}
 <div class="pagina-sucesso">
-    <!-- Círculo Verde com Check -->
-    <div class="circulo-sucesso">
-        <span class="check-branco">&#10004;</span>
-    </div>
+    <h1 class="titulo-sucesso">Anúncio já publicado com sucesso</h1>
 
-    <h1 class="titulo-sucesso">Anúncio ja publicado com sucesso</h1>
+    <!-- TODO (João Guilherme): Completar a tela de confirmação de publicação.
+         Requisitos para integrar com a rota /novo-anuncio do app.py:
+         
+         1. Adicionar um ícone ou destaque visual de sucesso acima do título.
+         2. Criar um card de resumo exibindo os dados da variável 'produto' recém-criada:
+            - Foto ({{ produto.foto }}) ou um espaço padrão caso não tenha foto.
+            - Nome ({{ produto.nome }}).
+            - Preço ({{ produto.preco }}).
+            - Status ({{ produto.status }}).
+         3. Adicionar dois links/botões na parte inferior:
+            - Um apontando para "/meus-anuncios" ("Ver meus anúncios").
+            - Outro apontando para "/catalogo" ("Voltar ao catálogo").
+    -->
 
-    <!-- Resumo do Produto Criado -->
-    <div class="card-produto card-sucesso">
-        <div class="box-foto">
-            {% if produto.foto %}
-                <img src="{{ produto.foto }}" alt="{{ produto.nome }}">
-            {% else %}
-                <span>Foto</span>
-            {% endif %}
-        </div>
-        <div class="info-produto">
-            <h3>{{ produto.nome }}</h3>
-            <p class="preco">R$ {{ "%.2f"|format(produto.preco)|replace('.', ',') }}</p>
-            <span class="tag-status">{{ produto.status }}</span>
-        </div>
-    </div>
-
-    <!-- Botões Inferiores -->
-    <div class="linha-botoes-sucesso">
-        <a href="/meus-anuncios" class="btn-sucesso-branco">Ver meus anúncios</a>
-        <a href="/catalogo" class="btn-sucesso-preto">Voltar ao catálogo</a>
-    </div>
 </div>
 {% endblock %}
+

@@ -4,57 +4,31 @@
 <div class="pagina-catalogo">
     <header class="topo-catalogo">
         <h1>Catálogo</h1>
-        <a href="/meus-anuncios" class="btn-outline">Meus anúncios</a>
+        <!-- TODO (Maria Eduarda): Adicionar link para /meus-anuncios -->
     </header>
 
-    <form class="filtros-catalogo" method="GET" action="/catalogo">
-        <div class="campo-busca">
-            <input type="text" name="busca" placeholder="Buscar produto" value="{{ request.args.get('busca', '') }}">
-            <span class="icone-lupa">🔍</span>
-        </div>
+    <!-- TODO (Maria Eduarda): Criar formulário de filtros do catálogo.
+         Requisitos para integrar com a rota /catalogo do app.py:
+         1. Tag <form> com method="GET" e action="/catalogo".
+         2. Input de texto para busca (name="busca").
+         3. Select de categoria (name="categoria") com valores: Roupas, Calçados, Acessórios e Outros.
+         4. Select de faixa de preço (name="preco") com valores exatos:
+            - "ate-30" (Até R$ 30,00)
+            - "30-60" (R$ 30,00 a R$ 60,00)
+            - "acima-60" (Acima de R$ 60,00)
+    -->
 
-        <div class="linha-selects">
-            <select name="categoria" onchange="this.form.submit()">
-                <option value="">Categoria</option>
-                <option value="Roupas" {% if request.args.get('categoria') == 'Roupas' %}selected{% endif %}>Roupas</option>
-                <option value="Calçados" {% if request.args.get('categoria') == 'Calçados' %}selected{% endif %}>Calçados</option>
-                <option value="Acessórios" {% if request.args.get('categoria') == 'Acessórios' %}selected{% endif %}>Acessórios</option>
-                <option value="Outros" {% if request.args.get('categoria') == 'Outros' %}selected{% endif %}>Outros</option>
-            </select>
+    <!-- TODO (Maria Eduarda): Criar listagem de produtos usando Jinja2.
+         Requisitos:
+         1. Percorrer a lista 'produtos' recebida do app.py ({% for produto in produtos %}).
+         2. Cada card deve ser um link apontando para "/produto/{{ produto.id }}".
+         3. Exibir foto (produto.foto), nome (produto.nome), preço (produto.preco) e status (produto.status).
+         4. Caso a lista esteja vazia ({% else %}), exibir aviso "Nenhum produto encontrado".
+    -->
 
-            <select name="preco" onchange="this.form.submit()">
-                <option value="">Faixa de preço</option>
-                <option value="ate-30" {% if request.args.get('preco') == 'ate-30' %}selected{% endif %}>Até R$ 30,00</option>
-                <option value="30-60" {% if request.args.get('preco') == '30-60' %}selected{% endif %}>R$ 30,00 a R$ 60,00</option>
-                <option value="acima-60" {% if request.args.get('preco') == 'acima-60' %}selected{% endif %}>Acima de R$ 60,00</option>
-            </select>
-        </div>
-    </form>
+    <!-- TODO (Maria Eduarda): Adicionar no rodapé um botão/link apontando para "/novo-anuncio" -->
 
-    <div class="lista-produtos">
-        {% for produto in produtos %}
-        <a href="/produto/{{ produto.id }}" class="card-produto">
-            <div class="box-foto">
-                {% if produto.foto %}
-                    <img src="{{ produto.foto }}" alt="{{ produto.nome }}">
-                {% else %}
-                    <span>Foto</span>
-                {% endif %}
-            </div>
-            <div class="info-produto">
-                <h3>{{ produto.nome }}</h3>
-                <p class="preco">R$ {{ "%.2f"|format(produto.preco)|replace('.', ',') }}</p>
-                <span class="tag-status">{{ produto.status }}</span>
-            </div>
-        </a>
-        {% else %}
-            <div class="alerta-prototipo">Nenhum produto encontrado</div>
-        {% endfor %}
-    </div>
-
-    <div class="rodape-acao">
-        <a href="/novo-anuncio" class="btn-preto-grande">Novo Anúncio</a>
-    </div>
 </div>
 {% endblock %}
+
 

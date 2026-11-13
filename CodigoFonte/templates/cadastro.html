@@ -4,39 +4,20 @@
 <div class="pagina-auth">
     <h1 class="titulo-principal">Bazar Online</h1>
 
-    <!-- Área para exibir mensagens de erro ou sucesso -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            <div class="mensagens">
-                {% for category, message in messages %}
-                    <p class="alerta {{ category }}">{{ message }}</p>
-                {% endfor %}
-            </div>
-        {% endif %}
-    {% endwith %}
+    <!-- TODO (Alana): Criar aqui os formulários de Login e Cadastro lado a lado.
+         Requisitos para integrar com o app.py e db.py:
+         
+         1. Coluna 1 - Entrar (Login):
+            - Tag <form> enviando para action="/login" com method="POST".
+            - Inputs obrigatórios: E-mail (name="email") e Senha (name="senha").
+            - Botão de envio com class="btn-preto".
 
-    <div class="colunas-container">
-        <!-- Coluna Esquerda: Entrar -->
-        <div class="coluna">
-            <h2>Entrar</h2>
-            <form action="/login" method="POST">
-                <input type="email" name="email" placeholder="E-mail" required>
-                <input type="password" name="senha" placeholder="Senha" required>
-                <button type="submit" class="btn-preto">Entrar</button>
-            </form>
-        </div>
+         2. Coluna 2 - Criar conta (Cadastro):
+            - Tag <form> enviando para action="/cadastro" com method="POST".
+            - Inputs obrigatórios: Nome (name="nome"), E-mail (name="email") e Senha (name="senha").
+            - Input opcional: Contato (name="contato").
+            - Botão de envio com class="btn-branco".
+    -->
 
-        <!-- Coluna Direita: Criar conta -->
-        <div class="coluna">
-            <h2>Criar conta</h2>
-            <form action="/cadastro" method="POST">
-                <input type="text" name="nome" placeholder="Nome" required>
-                <input type="email" name="email" placeholder="E-mail" required>
-                <input type="password" name="senha" placeholder="Senha" required>
-                <input type="text" name="contato" placeholder="Contato (opcional)">
-                <button type="submit" class="btn-branco">Cadastrar</button>
-            </form>
-        </div>
-    </div>
 </div>
 {% endblock %}

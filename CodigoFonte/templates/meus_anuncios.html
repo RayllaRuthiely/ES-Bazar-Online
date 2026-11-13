@@ -2,41 +2,29 @@
 
 {% block content %}
 <div class="pagina-meus-anuncios">
-    <!-- Cabeçalho com Título e Botão Voltar -->
     <div class="topo-meus-anuncios">
         <h1>Meus anúncios</h1>
-        <a href="/catalogo" class="btn-voltar">Voltar</a>
+        <!-- TODO (Samuel): Adicionar link/botão "Voltar" apontando para /catalogo -->
     </div>
 
-    <!-- Lista de Anúncios do Usuário -->
-    <div class="lista-meus-anuncios">
-        {% for produto in produtos %}
-        <div class="card-meu-anuncio">
-            <p class="titulo-preco-anuncio">
-                {{ produto.nome }} &bull; R$ {{ "%.2f"|format(produto.preco)|replace('.', ',') }}
-            </p>
+    <!-- TODO (Samuel): Criar aqui a listagem de gerenciamento dos anúncios.
+         Requisitos para integrar com o app.py:
+         
+         1. Percorrer a lista 'produtos' usando Jinja2 ({% for produto in produtos %}).
+         2. Exibir o nome ({{ produto.nome }}) e o preço ({{ produto.preco }}) de cada item.
+         
+         3. Formulário de Alterar Status:
+            - Tag <form> enviando para action="/alterar-status/{{ produto.id }}" com method="POST".
+            - Criar um <select name="status"> com as opções: "Disponível", "Reservado" e "Vendido".
+            - Dica: Use onchange="this.form.submit()" no select para atualizar automaticamente.
 
-            <div class="acoes-meu-anuncio">
-                <!-- Seletor de Status (envia automaticamente ao mudar) -->
-                <form action="/alterar-status/{{ produto.id }}" method="POST" class="form-status">
-                    <select name="status" onchange="this.form.submit()">
-                        <option value="Disponível" {% if produto.status == 'Disponível' %}selected{% endif %}>Status: Disponível</option>
-                        <option value="Reservado" {% if produto.status == 'Reservado' %}selected{% endif %}>Status: Reservado</option>
-                        <option value="Vendido" {% if produto.status == 'Vendido' %}selected{% endif %}>Status: Vendido</option>
-                    </select>
-                </form>
+         4. Formulário de Remover Anúncio:
+            - Tag <form> enviando para action="/remover-anuncio/{{ produto.id }}" com method="POST".
+            - Criar um botão type="submit" para remover o item.
 
-                <!-- Botão Remover -->
-                <form action="/remover-anuncio/{{ produto.id }}" method="POST" class="form-remover">
-                    <button type="submit" class="btn-remover">Remover</button>
-                </form>
-            </div>
-        </div>
-        {% else %}
-        <div class="alerta-prototipo">
-            Você ainda não possui anúncios cadastrados
-        </div>
-        {% endfor %}
-    </div>
+         5. Caso a lista esteja vazia ({% else %}), exibir a mensagem: "Você ainda não possui anúncios cadastrados".
+    -->
+
 </div>
 {% endblock %}
+

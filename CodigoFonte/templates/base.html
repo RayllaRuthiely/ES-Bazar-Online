@@ -3,10 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bazar Online</title>
+    <title>{% block title %}Bazar Online{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    {% block content %}{% endblock %}
+    <!-- Menu padrão para todas as páginas internas -->
+    <header>
+        <nav>
+            <a href="{{ url_for('catalogo') }}">Catálogo</a>
+            <a href="{{ url_for('novo_anuncio') }}">Anunciar Produto</a>
+            <a href="{{ url_for('meus_anuncios') }}">Meus Anúncios</a>
+            <a href="{{ url_for('inicio') }}">Sair</a>
+        </nav>
+    </header>
+
+    <!-- Área global para mensagens flash() do Flask -->
+    <main>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alertas">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Conteúdo específico que cada membro vai criar -->
+        {% block content %}{% endblock %}
+    </main>
 </body>
 </html>
+
