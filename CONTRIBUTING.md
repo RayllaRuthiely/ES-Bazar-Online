@@ -47,46 +47,58 @@ docs: atualiza requisitos
 
 Os tipos mais usados são `feat`, `fix`, `docs`, `test` e `refactor`. Tente fazer commits pequenos, um por mudança, para facilitar a revisão.
 
+
 ## Pull Requests
 
-Toda alteração destinada à main deve ser proposta por meio de um Pull Request (PR).
+Toda alteração destinada à `main` deverá ser proposta por meio de um Pull Request (PR).
 
-**Antes de abrir um PR, verifique se:**
+Antes de abrir um PR, o autor deverá verificar se:
 
-- A alteração está relacionada a uma tarefa ou issue do projeto.
+- A alteração está relacionada a uma issue ou tarefa do projeto.
+- O PR contempla apenas um item do backlog.
 - O código está organizado e a mudança é coerente.
 - Os testes pertinentes foram executados.
 - A documentação foi atualizada, quando necessário.
 - A descrição explica o que mudou e como testar.
+- Não foram incluídos segredos, senhas, tokens ou dados pessoais reais no repositório.
 
-**A descrição do PR deve informar:**
+### Descrição do Pull Request
+
+A descrição deverá informar:
 
 - O objetivo da alteração.
 - A issue ou tarefa relacionada.
 - As principais mudanças realizadas.
-- Os passos para testar o resultado.
+- Os passos necessários para testar o resultado.
+
+O repositório disponibiliza o modelo `.github/pull_request_template.md` para orientar o preenchimento dessas informações.
 
 ## Revisão de código
 
-**Todo PR deve ser revisado e aprovado por pelo menos uma pessoa diferente de seu autor. Não é permitido aprovar o próprio PR.**
+Todo PR deverá ser revisado e aprovado por pelo menos uma pessoa diferente de seu autor. Não é permitido aprovar o próprio PR.
 
-**Lista de verificação para revisão**
+A pessoa responsável pela revisão deverá responder em até 24 horas após a abertura do PR, informando se iniciará a análise ou se existe algum impedimento. Caso não consiga realizar a revisão nesse prazo, deverá comunicar a equipe para que outro integrante possa assumir.
 
-A pessoa responsável pela revisão deve utilizar a lista abaixo para avaliar as alterações antes da aprovação do PR:
+A aprovação somente deverá ocorrer depois que os problemas que bloqueiam a integração forem resolvidos.
 
-- [ ] **Critérios de aceitação:** a alteração atende ao que foi solicitado na tarefa?
-- [ ] **Requisitos:** a implementação está de acordo com os requisitos do projeto?
-- [ ] **Organização:** o código respeita a estrutura e a organização existentes?
-- [ ] **Responsabilidades:** cada classe, função ou módulo possui uma responsabilidade clara?
-- [ ] **Contratos:** as interfaces e os parâmetros utilizados estão corretos e são compatíveis com o restante do sistema?
-- [ ] **Legibilidade:** os nomes de variáveis, funções e classes são claros? O código é fácil de compreender?
-- [ ] **Manutenibilidade:** existem repetições desnecessárias ou trechos que poderiam ser simplificados?
-- [ ] **Casos de uso:** foram considerados os casos de ausência de dados, apenas um registro e vários registros, quando aplicável?
-- [ ] **Testes:** os testes pertinentes foram executados e os resultados estão corretos?
-- [ ] **Documentação:** a documentação foi atualizada quando necessário?
-- [ ] **Rastreabilidade:** o PR está relacionado à issue ou tarefa correspondente?
+### Lista de verificação para revisão
 
-**Classificação dos comentários da revisão**
+A pessoa responsável pela revisão deverá utilizar a lista abaixo para avaliar as alterações antes da aprovação:
+
+- **Critérios de aceitação:** a alteração atende ao que foi solicitado na tarefa?
+- **Requisitos:** a implementação está de acordo com os requisitos do projeto?
+- **Organização:** o código respeita a estrutura e a organização existentes?
+- **Responsabilidades:** cada classe, função ou módulo possui uma responsabilidade clara?
+- **Contratos:** as interfaces e os parâmetros utilizados estão corretos e são compatíveis com o restante do sistema?
+- **Legibilidade:** os nomes de variáveis, funções e classes são claros? O código é fácil de compreender?
+- **Manutenibilidade:** existem repetições desnecessárias ou trechos que poderiam ser simplificados?
+- **Casos de uso e multiplicidade:** foram considerados os casos de ausência de dados, apenas um registro e vários registros, quando aplicável?
+- **Segurança:** foram evitados problemas relacionados à exposição de dados, credenciais e informações sensíveis?
+- **Testes:** os testes pertinentes foram executados e os resultados estão corretos?
+- **Documentação:** a documentação foi atualizada quando necessário?
+- **Rastreabilidade:** o PR está relacionado à issue, tarefa e requisito correspondente?
+
+### Classificação dos comentários da revisão
 
 Ao realizar comentários no código ou no PR, a equipe deverá classificá-los da seguinte maneira:
 
@@ -95,7 +107,15 @@ Ao realizar comentários no código ou no PR, a equipe deverá classificá-los d
 - **Pergunta:** solicita esclarecimento sobre alguma decisão ou implementação.
 - **Elogia:** reconhece uma solução ou prática bem realizada.
 
-Os comentários devem ser objetivos, respeitosos e acompanhados de uma explicação quando necessário. A classificação ajuda a equipe a identificar o que precisa ser corrigido e o que representa apenas uma sugestão de melhoria.
+Os comentários devem ser objetivos, respeitosos e acompanhados de explicações quando necessário. A classificação ajuda a equipe a identificar o que precisa ser corrigido e o que representa apenas uma sugestão de melhoria.
+
+### Resolução de divergências
+
+Quando o autor e o revisor discordarem sobre alguma alteração, deverão apresentar suas justificativas de forma respeitosa e fundamentada nos requisitos, critérios de aceitação e padrões do projeto.
+
+Caso a divergência não seja resolvida entre os dois integrantes, a questão deverá ser discutida com a equipe. A decisão deverá ser discutida e registrada no PR para manter a rastreabilidade.
+
+Enquanto existir um problema classificado como **Bloqueia** sem solução, o PR não deverá ser aprovado.
 
 ## Quando uma tarefa está pronta
 
