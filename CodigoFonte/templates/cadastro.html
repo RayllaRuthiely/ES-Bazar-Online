@@ -1,23 +1,48 @@
-{% extends 'base.html' %}
 
-{% block content %}
-<div class="pagina-auth">
-    <h1 class="titulo-principal">Bazar Online</h1>
+<!DOCTYPE html>
+<html lang="pt-br"> 
 
-    <!-- TODO (Alana): Criar aqui os formulários de Login e Cadastro lado a lado.
-         Requisitos para integrar com o app.py e db.py:
-         
-         1. Coluna 1 - Entrar (Login):
-            - Tag <form> enviando para action="/login" com method="POST".
-            - Inputs obrigatórios: E-mail (name="email") e Senha (name="senha").
-            - Botão de envio com class="btn-preto".
 
-         2. Coluna 2 - Criar conta (Cadastro):
-            - Tag <form> enviando para action="/cadastro" com method="POST".
-            - Inputs obrigatórios: Nome (name="nome"), E-mail (name="email") e Senha (name="senha").
-            - Input opcional: Contato (name="contato").
-            - Botão de envio com class="btn-branco".
-    -->
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Usuário</title>		
+</head>
 
-</div>
-{% endblock %}
+
+
+<body>
+
+    <h1>Cadastro de Usuário</h1> 
+
+<form action="/cadastro" method="POST">	
+
+        <label>Nome:</label>				
+        <input type="text" name="nome" required>	
+
+        <br><br>					
+
+        <label>E-mail:</label>
+        <input type="email" name="email" required>
+
+        <br><br>
+
+        <label>Senha:</label>
+        <input type="password" name="senha" required>
+
+        <br><br>
+
+        <label>Telefone:</label>
+        <input type="text" name="telefone" required>
+
+        <br><br>
+
+        <button type="submit">Cadastrar</button>      
+    </form>
+
+    {% if mensagem %}
+        <p>{{ mensagem }}</p>
+    {% endif %}
+
+</body>
+
+</html>

@@ -1,9 +1,33 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
+from routes.cadastro import cadastro
+from routes.login import login
+from routes.usuario import usuario
+from routes.anuncio import anuncio
+from routes.categoria import categoria
+from routes.busca import busca
+from routes.contato import contato
 
 app = Flask(__name__)
-app.secret_key = 'teste_visual'
 
-PRODUTOS = [
+app.register_blueprint(cadastro)
+app.register_blueprint(login)
+app.register_blueprint(usuario)
+app.register_blueprint(anuncio)
+app.register_blueprint(categoria)
+app.register_blueprint(busca)
+app.register_blueprint(contato)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+
+
+""" app.secret_key = 'teste_visual'
+ """
+
+""" PRODUTOS = [
     {
         "id": 1,
         "nome": "Produto Exemplo",
@@ -15,17 +39,6 @@ PRODUTOS = [
         "foto": None
     }
 ]
-
-# --- (Estrutura Base e Navegação) ---
-@app.route('/')
-def inicio():
-    return render_template('cadastro.html')
-
-@app.route('/login', methods=['POST'])
-@app.route('/cadastro', methods=['POST'])
-def ir_para_catalogo():
-    # TODO (Alana): Integrar validação com db.py aqui
-    return redirect(url_for('catalogo'))
 
 
 # --- MARIA EDUARDA (Catálogo e Detalhes) ---
@@ -76,7 +89,7 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 
-
+ """
 
 
 
