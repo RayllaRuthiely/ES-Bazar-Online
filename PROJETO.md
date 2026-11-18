@@ -6,9 +6,9 @@ Diagrama em `diagrams/dominio.mmd`.
 
 | Classe | Origem no REQUISITOS.md | Observação |
 |---|---|---|
-| Usuário | HU-06 | Cadastro e login;|
-| Anúncio | CA-01.1, CA-05.1, CA-07.1 | Reúne o que o glossário separa em "Anúncio" e "Produto"; RN-01 e RN-02 justificam `categoria` e `status` |
-| Foto | CA-01.1 | Anúncio tem "fotos" no plural — composição, não existe fora do anúncio |
+| Usuário | HU-01 | Cadastro e login;|
+| Anúncio | CA-02.1, CA-06.1, CA-07.1 | Reúne o que o glossário separa em "Anúncio" e "Produto"; RN-01 e RN-02 justificam `categoria` e `status` |
+| Foto | CA-02.1 | Anúncio tem "fotos" no plural — composição, não existe fora do anúncio |
 
 Substantivos do glossário descartados do modelo, com motivo:
 
@@ -59,7 +59,7 @@ Ambas as lacunas foram resolvidas: viraram CA-05.4 (cancelamento de reserva) e H
 | Id | Decisão | Motivo | Consequência aceita |
 |---|---|---|---|
 | D-01 | Apagamento lógico (`ativo`) em Usuário e Anúncio | RN-04: vendedor é responsável pelo que anunciou; histórico deve sobreviver à remoção | Uma condição a mais em cada consulta |
-| D-02 | Contato fica em Usuário, não em Anúncio | CA-03.1 fala em "forma de contato disponibilizada pelo vendedor", no singular ligado ao vendedor | Vendedor não pode ter contato diferente por anúncio |
+| D-02 | Contato fica em Usuário, não em Anúncio | CA-04.1 fala em "forma de contato disponibilizada pelo vendedor", no singular ligado ao vendedor | Vendedor não pode ter contato diferente por anúncio |
 | D-03 | Regras de validação do anúncio isoladas da tela, em módulo único | Teste de Parnas: categorias e campos obrigatórios têm chance real de mudar durante o semestre | Uma indireção a mais entre tela e regra |
 
 ## 6.Protótipo
@@ -77,14 +77,15 @@ Comparação entre protótipo, modelo de domínio, modelo de dados e REQUISITOS.
 
 *Achados corrigidos:*
 - O formulário "Novo Anúncio" não tinha campo para o atributo titulo do modelo de domínio — adicionado.
-- O fluxo de publicação (UC-01) não tinha tela de confirmação de sucesso (exigida por CA-01.1) — adicionada.
-- O diagrama de estados do Anúncio revelou duas transições sem critério de aceitação correspondente (cancelar reserva, remover anúncio) — viraram CA-05.4 e HU-08 no REQUISITOS.md.
+- O fluxo de publicação (UC-01) não tinha tela de confirmação de sucesso (exigida por CA-02.1) — adicionada.
+- O diagrama de estados do Anúncio revelou duas transições sem critério de aceitação correspondente (cancelar reserva, remover anúncio) — viraram CA-06.4 e HU-08 no REQUISITOS.md.
 
 *Pendente (depende de código rodando):*
-- Confirmar se a tela de detalhe realmente lê o campo contato de Usuário (CA-03.1).
+- Confirmar se a tela de detalhe realmente lê o campo contato de Usuário (CA-04.1).
 - Confirmar se a tela de catálogo filtra anúncios com status Vendido (RN-03).
 
 ## 8.Histórico de revisão 
 | Data | Versão | Alteração |
 | --- | --- | --- |
 | 2026-09-23 | 1.0 | Versão inicial do documento de projeto: modelo de domínio, modelo de dados, comportamento, responsabilidades, decisões de projeto, protótipo e conferência cruzada. |
+| 2026-11-18 | 1.2 | Correção e aspersão. |

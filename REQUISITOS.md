@@ -50,19 +50,19 @@
 
 **Origem:** `DESCOBERTA.md`.
 
-#### CA-06.1 — Cadastro realizado
+#### CA-01.1 — Cadastro realizado
 
 **Dado** que o usuário informou os dados necessários,
 **quando** confirmar o cadastro,
 **então** o sistema deve registrar a conta.
 
-#### CA-06.2 — Cadastro recusado
+#### CA-01.2 — Cadastro recusado
 
 **Dado** que os dados obrigatórios não foram preenchidos corretamente,
 **quando** o usuário tentar concluir o cadastro,
 **então** o sistema deve recusar a operação e informar o problema.
 
-#### CA-06.3 — Efeito persistente
+#### CA-01.3 — Efeito persistente
 
 **Dado** que o cadastro foi concluído,
 **quando** o usuário acessar novamente o sistema,
@@ -78,19 +78,19 @@
 
 **Origem:** N2, confirmada em `DESCOBERTA.md`.
 
-#### CA-01.1 — Cadastro do anúncio
+#### CA-02.1 — Cadastro do anúncio
 
 **Dado** que o vendedor está cadastrado no sistema,
 **quando** informar as fotos, descrição, preço e categoria do produto e confirmar o cadastro,
 **então** o sistema deve criar o anúncio e disponibilizá-lo no catálogo.
 
-#### CA-01.2 — Recusa do anúncio
+#### CA-02.2 — Recusa do anúncio
 
 **Dado** que o vendedor não informou os dados necessários para o anúncio,
 **quando** tentar publicá-lo,
 **então** o sistema deve recusar o cadastro e informar que os dados obrigatórios precisam ser preenchidos.
 
-#### CA-01.3 — Efeito persistente
+#### CA-02.3 — Efeito persistente
 
 **Dado** que o anúncio foi cadastrado com sucesso,
 **quando** o vendedor ou outro usuário consultar novamente o catálogo,
@@ -106,19 +106,19 @@
 
 **Origem:** N1, confirmada em `DESCOBERTA.md`.
 
-#### CA-02.1 — Produto encontrado
+#### CA-03.1 — Produto encontrado
 
 **Dado** que existem produtos cadastrados no sistema,
 **quando** o comprador realizar uma busca por um produto,
 **então** o sistema deve apresentar os anúncios correspondentes à pesquisa.
 
-#### CA-02.2 — Nenhum produto encontrado
+#### CA-03.2 — Nenhum produto encontrado
 
 **Dado** que não existem anúncios correspondentes à pesquisa,
 **quando** o comprador realizar a busca,
 **então** o sistema deve informar que nenhum produto foi encontrado.
 
-#### CA-02.3 — Efeito persistente
+#### CA-03.3 — Efeito persistente
 
 **Dado** que existem anúncios cadastrados,
 **quando** o comprador realizar uma nova busca,
@@ -134,19 +134,19 @@
 
 **Origem:** N4, confirmada em `DESCOBERTA.md`.
 
-#### CA-03.1 — Contato disponível
+#### CA-04.1 — Contato disponível
 
 **Dado** que o comprador visualizou um anúncio disponível,
 **quando** selecionar a opção de contato,
 **então** o sistema deve apresentar a forma de contato disponibilizada pelo vendedor.
 
-#### CA-03.2 — Contato indisponível
+#### CA-04.2 — Contato indisponível
 
 **Dado** que o vendedor não disponibilizou uma forma de contato,
 **quando** o comprador tentar entrar em contato,
 **então** o sistema deve informar que não há uma forma de contato disponível.
 
-#### CA-03.3 — Efeito persistente
+#### CA-04.3 — Efeito persistente
 
 **Dado** que o vendedor possui uma forma de contato cadastrada,
 **quando** o anúncio for consultado novamente enquanto estiver disponível,
@@ -162,19 +162,19 @@
 
 **Origem:** N3, confirmada em `DESCOBERTA.md`.
 
-#### CA-04.1 — Filtro aplicado
+#### CA-05.1 — Filtro aplicado
 
 **Dado** que existem produtos de diferentes categorias e preços,
 **quando** o comprador selecionar uma categoria ou faixa de preço,
 **então** o sistema deve apresentar somente os produtos correspondentes ao filtro.
 
-#### CA-04.2 — Nenhum resultado
+#### CA-05.2 — Nenhum resultado
 
 **Dado** que não existem produtos correspondentes ao filtro selecionado,
 **quando** o comprador aplicar o filtro,
 **então** o sistema deve informar que nenhum produto foi encontrado.
 
-#### CA-04.3 — Remoção do filtro
+#### CA-05.3 — Remoção do filtro
 
 **Dado** que um filtro está aplicado,
 **quando** o comprador removê-lo,
@@ -190,25 +190,25 @@
 
 **Origem:** N5, confirmada em `DESCOBERTA.md`.
 
-#### CA-05.1 — Alteração de status
+#### CA-06.1 — Alteração de status
 
 **Dado** que o vendedor possui um anúncio cadastrado,
 **quando** alterar seu status,
 **então** o sistema deve atualizar o anúncio para o status selecionado.
 
-#### CA-05.2 — Status inválido
+#### CA-06.2 — Status inválido
 
 **Dado** que o vendedor está alterando o status do anúncio,
 **quando** informar um status diferente dos estados permitidos,
 **então** o sistema deve recusar a alteração.
 
-#### CA-05.3 — Efeito persistente
+#### CA-06.3 — Efeito persistente
 
 **Dado** que o status do anúncio foi alterado,
 **quando** o anúncio for consultado novamente,
 **então** o sistema deve apresentar o status atualizado.
 
-#### CA-05.4 — Cancelamento de reserva
+#### CA-06.4 — Cancelamento de reserva
 
 *Dado* que o anúncio está com status Reservado,
 *quando* o vendedor cancelar a reserva,
@@ -471,3 +471,4 @@ A equipe revisou as necessidades, cenários e escopo definidos durante a descobe
 | 2026-09-03 | 1.0    | Criação do documento de requisitos com glossário, backlog, histórias de usuário, critérios de aceitação, casos de uso, requisitos não funcionais, restrições, regras de negócio e validação. |
 | 2026-09-10 | 1.1    | Adequação dos requisitos ao escopo definido na `DESCOBERTA.md` e ao MVP do projeto.|
 | 2026-09-23 | 1.2    | Adiciona CA-05.4 (cancelamento de reserva) e HU-08 (remover anúncio), lacunas encontradas na modelagem.|
+| 2026-11-18 | 1.3    | Correção dos Critérios de Aceitação em História dos Usuários. |
