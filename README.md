@@ -77,6 +77,7 @@ A plataforma terá como foco facilitar a busca, divulgação e negociação de p
 
 Projeto em desenvolvimento (**19 de 35 entregáveis concluídos** — Capítulos 1 a 12 finalizados; Capítulos 13 a 16 planejados).
 
+
 ### Gráfico de Burndown — Evolução e Entregas Restantes
 
 ```mermaid
@@ -91,7 +92,6 @@ xychart-beta
 **Legenda:**
 * 🔵 **Linha Azul (Meta Ideal):** Ritmo linear esperado ao longo do semestre.
 * 🟢 **Linha Verde (Real + Projeção):** Progresso real até hoje (**16 entregáveis restantes**) e planejamento para os Capítulos 13 a 16 até a versão `v1.0.0`.
-
 
 
 ## Licença
