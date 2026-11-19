@@ -12,3 +12,12 @@ def test_rota_inexistente_retorna_not_found(client):
 
     # Conferir
     assert resposta.status_code == 404
+
+
+def test_pagina_inicial_redireciona_para_cadastro(client):
+    # Agir
+    resposta = client.get("/")
+
+    # Conferir
+    assert resposta.status_code == 302
+    assert "/cadastro" in resposta.headers["Location"]
