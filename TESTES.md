@@ -13,9 +13,9 @@
 
 ### 1.2 Ambiente, Identificação da Build e Critério de Saída
 
-* **Ambiente de teste:** Aplicação executando em ambiente local/homologação com banco de dados populado com anúncios de teste (status *Disponível*, *Reservado* e *Vendido*) e navegador Google Chrome atualizado.
-* **Identificação da build:** `v0.3.0-mvp` *(substituir pela tag exata do repositório utilizada na execução)*.
-* **Critério de saída:** Todos os casos de teste não bloqueados do fluxo principal (`HU-01`, `HU-02` e `HU-03`) executados, com evidência registrada e **nenhum defeito Major aberto**.
+* **Ambiente de teste:** Aplicação executando em ambiente local/homologação e no pipeline de CI (GitHub Actions com Python 3.12/3.13) utilizando o cliente de testes nativo do Flask.
+* **Identificação da build:** `v0.2.0-parcial` *(fluxo de cadastro e regras básicas implementados; busca e contato em construção)*.
+* **Critério de saída:** Todos os casos de teste não bloqueados executados (com suíte automatizada verde no CI) e **nenhum defeito Major aberto**.
 
 ---
 
@@ -43,20 +43,30 @@
   * *Partição válida (sem resultados):* termo inexistente no catálogo (ex: `"Geladeira Espacial"`).
   * *Partição pendente (Bloqueada):* termo presente apenas na descrição ou com diferença de acentuação (depende da pergunta **P3**).
 
-### 3.2 Tabela de Casos de Teste de Sistema
+### 3.2 Tabela de Casos de Teste e Execução
 
-| ID | Critério | Preparo (Dado) | Passos (Quando) | Resultado Esperado (Então) | Status | Vínculo / Observação |
+| ID | Critério | Preparo (Dado) | Passos (Quando) | Resultado Esperado (Então) | Status | Vínculo / Onde é verificado |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **TC-01.1** | `CA-01.1` | Usuário não cadastrado na tela de registro. | Preencher dados válidos (nome, e-mail único, senha) e confirmar cadastro. | Conta criada com sucesso e usuário apto a acessar o sistema. | Não executado | — |
-| **TC-01.2** | `CA-01.2` | Usuário na tela de cadastro. | Deixar campos obrigatórios em branco e clicar em confirmar. | Sistema recusa o cadastro e exibe mensagem indicando os campos obrigatórios. | Não executado | — |
+| **TC-01.1** | `CA-01.1` | Usuário não cadastrado acessando a rota de registro. | Realizar requisição `GET /cadastro` no cliente de testes Flask. | Sistema responde com status `200 OK` exibindo o formulário de cadastro. | **Aprovado** *(Automatizado)* | `tests/test_integracao_rotas.py` (`test_rota_cadastro_exibe_formulario`). |
+| **TC-01.2** | `CA-01.2` | Usuário na tela de cadastro. | Deixar campos obrigatórios em branco e clicar em confirmar. | Sistema recusa o cadastro e exibe mensagem indicando os campos obrigatórios. | Não executado *(Manual)* | Verificação manual de interface (`routes/cadastro.py`). |
 | **TC-01.3** | `CA-01.2` | Usuário na tela de cadastro. | Inserir senha curta (ex: 3 caracteres) ou formato de telefone inválido. | Recusa o cadastro informando a regra de formato mínimo. | **Bloqueado** | Bloqueado pela **P1** (campos obrigatórios e tamanho mínimo de senha não definidos no `REQUISITOS.md`). |
-| **TC-02.1** | `CA-02.1` | Vendedor autenticado na tela de novo anúncio. | Anexar 1 foto JPG válida, preencher título, descrição, categoria e preço `R$ 50,00`, e confirmar. | Anúncio criado, mensagem de sucesso exibida e item visível no catálogo. | Não executado | — |
-| **TC-02.2** | `CA-02.2` | Vendedor autenticado na tela de novo anúncio. | Deixar descrição e preço vazios e tentar publicar o anúncio. | Sistema recusa a publicação e informa que os dados obrigatórios devem ser preenchidos. | Não executado | — |
-| **TC-02.3** | `CA-02.2` | Vendedor autenticado na tela de novo anúncio. | Preencher todos os campos, informar preço negativo (`-R$ 0,01`) e tentar publicar. | Sistema recusa o anúncio e informa que o preço deve ser um valor válido. | Não executado | Teste de valor limite inferior inválido. |
+| **TC-02.1** | `CA-02.1` | Dados válidos de título, descrição e preços positivos (`0.01` e `50.00`). | Executar a função de validação de dados do anúncio. | Validação retorna `True` (aceita valores positivos a partir do limite `0.01`). | **Aprovado** *(Automatizado)* | `tests/test_unidade_regras.py` (`test_validar_preco_anuncio_valores_limite`). |
+| **TC-02.2** | `CA-02.2` | Anúncio com título vazio (`""`) e demais campos preenchidos. | Executar a função de validação de dados do anúncio. | Validação retorna `False`, recusando o anúncio sem campos obrigatórios. | **Aprovado** *(Automatizado)* | `tests/test_unidade_regras.py` (`test_recusa_anuncio_com_campos_obrigatorios_vazios`). |
+| **TC-02.3** | `CA-02.2` | Anúncio com preços negativos (`-10.00` e limite `-0.01`). | Executar a função de validação de dados do anúncio. | Validação retorna `False`, recusando valores negativos. | **Aprovado** *(Automatizado)* | `tests/test_unidade_regras.py` (`test_validar_preco_anuncio_valores_limite`). |
 | **TC-02.4** | `CA-02.1` | Vendedor autenticado na tela de novo anúncio. | Preencher todos os campos, informar preço `R$ 0,00` e tentar publicar. | Comportamento indefinido (aceitar como gratuito ou recusar). | **Bloqueado** | Bloqueado pela **P2** (regra para anúncios com preço `R$ 0,00` e limites de fotos em aberto). |
-| **TC-03.1** | `CA-03.1` | Catálogo com anúncio ativo intitulado `"Bicicleta Aro 29"`. | Digitar `"Bicicleta"` no campo de busca e confirmar. | Sistema exibe o anúncio `"Bicicleta Aro 29"` nos resultados. | Não executado | — |
-| **TC-03.2** | `CA-03.2` | Catálogo populado com produtos diversos. | Digitar `"Micro-ondas Industrial XYZ"` e confirmar a busca. | Sistema exibe mensagem informando que nenhum produto foi encontrado. | Não executado | — |
+| **TC-03.1** | `CA-03.1` | Catálogo com anúncio ativo intitulado `"Bicicleta Aro 29"`. | Digitar `"Bicicleta"` no campo de busca e confirmar. | Sistema exibe o anúncio `"Bicicleta Aro 29"` nos resultados. | **Bloqueado** | Aguardando implementação da rota de busca (`CodigoFonte/routes/busca.py`). |
+| **TC-03.2** | `CA-03.2` | Catálogo populado com produtos diversos. | Digitar `"Micro-ondas Industrial XYZ"` e confirmar a busca. | Sistema exibe mensagem informando que nenhum produto foi encontrado. | **Bloqueado** | Aguardando implementação da rota de busca (`CodigoFonte/routes/busca.py`). |
 | **TC-03.3** | `CA-03.1` | Catálogo com anúncio contendo `"Palmas"` apenas na descrição (não no título). | Buscar por `"palmas"` (em minúsculo) no catálogo. | Comportamento indefinido quanto à busca na descrição e *case-sensitivity*. | **Bloqueado** | Bloqueado pela **P3** (escopo de campos da busca não especificado no `REQUISITOS.md`). |
+
+### 3.3 Automação, Estilo e Relatório de Cobertura (Capítulo 12)
+
+* **Comando de execução dos testes:** `pytest -v --cov=CodigoFonte --cov-report=term-missing`
+* **Comandos de formatação e linter:** `ruff format --check .` e `ruff check .`
+* **Integração Contínua (CI):** Executado automaticamente a cada *Pull Request* e *push* na branch `main` via `.github/workflows/verificacao.yml`.
+* **Leitura do relatório de cobertura (`65%` total — 63 instruções, 22 não executadas):**
+  * `CodigoFonte/app.py` atingiu **95%** de cobertura (apenas a linha `22` do bloco `if __name__ == "__main__":` fica de fora durante testes importados).
+  * `CodigoFonte/routes/cadastro.py` atingiu **30%** de cobertura (coluna `Missing: 14-51`), indicando que a rota `GET` foi exercitada pelo teste automatizado, enquanto o fluxo `POST` de gravação no banco ainda aguarda implementação de dublês de conexão MySQL.
+  * Os demais arquivos de rotas (`anuncio.py`, `busca.py`, `categoria.py`, `contato.py`, `login.py`, `usuario.py`) atingiram **100%** nas definições de blueprint existentes.
 
 ---
 
@@ -71,3 +81,4 @@
 | N.º | Observação / Situação | Classificação | Issue / Destino |
 | :--- | :--- | :--- | :--- |
 | — | Execução bloqueada por ausência de build com o fluxo principal (`HU-03` e `HU-04`) integrado na interface. Conforme a regra de evidência de testes, o bloqueio é registrado como ausência de evidência e não como aprovação. | **Bloqueado** | Nenhuma issue aberta até a execução na build funcional. |
+
