@@ -6,7 +6,7 @@
 * **Documento inspecionado:** `REQUISITOS.md`
 * **Atividade:** Verificação e Validação (Capítulo 11)
 * **Data:** 18/11/2026
-* **Versão do documento:** 1.3
+* **Versão do documento:** 1.4
 
 ## 2. Participantes e papéis
 
