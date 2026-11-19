@@ -63,11 +63,11 @@
 ## 4. Registro do Teste de Utilidade (Validação com Usuário)
 
 * **Data:** 18/11/2026
-* **Build testada:** `v0.3.0-mvp`
-* **Perfil do avaliador:** Pessoa externa à equipe (aluno de outra equipe).
+* **Build testada:** `v0.2.0-parcial` *(fluxo principal ainda em construção)*
+* **Perfil do avaliador previsto:** Pessoa externa à equipe (aluno de outra equipe).
 * **Tarefa proposta (Objetivo):** *"Acesse o Bazar Online, encontre um produto disponível para compra em Palmas–TO e descubra como entrar em contato com o vendedor para negociar."*
-* **Status:** Pendente de execução com avaliador externo *(nenhuma issue de defeito ou necessidade nova foi aberta até o momento)*.
+* **Status:** **Bloqueado** (aguardando conclusão da implementação do fluxo de busca e contato na interface).
 
-| N.º | Observação durante o uso | Classificação | Issue / Destino |
+| N.º | Observação / Situação | Classificação | Issue / Destino |
 | :--- | :--- | :--- | :--- |
-| — | Aguardando realização da sessão de observação sem auxílio com usuário externo à equipe. | — | Nenhuma issue aberta no momento. |
+| — | Execução bloqueada por ausência de build com o fluxo principal (`HU-03` e `HU-04`) integrado na interface. Conforme a regra de evidência de testes, o bloqueio é registrado como ausência de evidência e não como aprovação. | **Bloqueado** | Nenhuma issue aberta até a execução na build funcional. |
