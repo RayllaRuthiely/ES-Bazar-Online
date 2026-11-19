@@ -68,6 +68,20 @@
 **quando** o usuário acessar novamente o sistema,
 **então** sua conta deve continuar registrada.
 
+#### CA-01.4 — Login realizado
+
+**Dado** que o usuário possui uma conta cadastrada,
+**quando** informar credenciais válidas e confirmar o acesso,
+**então** o sistema deve autenticar o usuário e liberar as funcionalidades restritas.
+
+#### CA-01.5 — Login recusado
+
+**Dado** que o usuário informou e-mail não cadastrado ou senha incorreta,
+**quando** tentar realizar login,
+**então** o sistema deve recusar o acesso e informar o erro de autenticação.
+
+> **Pergunta em aberto — P1 (Inspeção Cap. 11):** Quais são exatamente os campos obrigatórios no cadastro de usuário (nome, e-mail, senha, WhatsApp/telefone) e qual a regra mínima de segurança para a senha? *(Casos de teste de validação de formato bloqueados até a resposta).*
+
 ---
 
 ### HU-02 — Cadastrar e gerenciar anúncio
@@ -96,6 +110,8 @@
 **quando** o vendedor ou outro usuário consultar novamente o catálogo,
 **então** o anúncio deve permanecer disponível até que seja alterado, removido ou tenha seu status modificado.
 
+> **Pergunta em aberto — P2 (Inspeção Cap. 11):** Qual a quantidade mínima e máxima de fotos por anúncio, quais formatos de imagem são aceitos (ex: JPG, PNG) e o sistema permite cadastrar anúncios gratuitos com preço igual a `R$ 0,00`? *(Casos de teste de valor limite bloqueados até a resposta).*
+
 ---
 
 ### HU-03 — Buscar produtos
@@ -123,6 +139,8 @@
 **Dado** que existem anúncios cadastrados,
 **quando** o comprador realizar uma nova busca,
 **então** os anúncios que continuam disponíveis devem permanecer consultáveis no catálogo.
+
+> **Pergunta em aberto — P3 (Inspeção Cap. 11):** A busca por palavra-chave deve pesquisar apenas no título do anúncio ou também na descrição, e deve ignorar diferenças entre letras maiúsculas, minúsculas e acentos? *(Caso de teste `TC-03.3` bloqueado até a resposta).*
 
 ---
 
@@ -450,6 +468,18 @@ A equipe revisou as necessidades, cenários e escopo definidos durante a descobe
 | O sistema não terá chat em tempo real.                              | O contato inicial será realizado por canal externo.                              | RE-04         |
 | O projeto será direcionado para Palmas–TO.                          | A área de atuação foi definida como uma restrição do sistema.                    | RE-01         |
 
+### V2 — 2026-11-18 — Inspeção formal de requisitos (Capítulo 11)
+
+A equipe conduziu a inspeção técnica dos requisitos do fluxo principal (`HU-01`, `HU-02`, `HU-03`, `CA-02.2` e `CA-03.1`), registrada na íntegra em `INSPECAO.md`.
+
+| Achado | Efeito | Item alterado |
+| :--- | :--- | :--- |
+| Critérios de `HU-01` não cobriam o fluxo de login. | Adicionados os critérios `CA-01.4` e `CA-01.5`. | HU-01 |
+| Título de `HU-02` citava "gerenciar", mas critérios tratavam apenas do cadastro. | Título ajustado para "Cadastrar anúncio" (gerenciamento coberto em `HU-06` e `HU-08`). | HU-02 |
+| Falta de definição sobre campos obrigatórios de usuário e regra mínima de senha. | Aberta pergunta em aberto **P1** e bloqueado caso de teste `TC-01.3`. | HU-01 |
+| Falta de limites para quantidade/formato de fotos e preço `R$ 0,00`. | Aberta pergunta em aberto **P2** e bloqueado caso de teste `TC-02.4`. | HU-02 |
+| Ambiguidade sobre o escopo de busca (título/descrição e acentuação). | Aberta pergunta em aberto **P3** e bloqueado caso de teste `TC-03.3`. | HU-03 |
+
 ---
 
 ## 8. Relação entre necessidades e requisitos
@@ -472,3 +502,5 @@ A equipe revisou as necessidades, cenários e escopo definidos durante a descobe
 | 2026-09-10 | 1.1    | Adequação dos requisitos ao escopo definido na `DESCOBERTA.md` e ao MVP do projeto.|
 | 2026-09-23 | 1.2    | Adiciona CA-05.4 (cancelamento de reserva) e HU-08 (remover anúncio), lacunas encontradas na modelagem.|
 | 2026-11-18 | 1.3    | Correção dos Critérios de Aceitação em História dos Usuários. |
+| 2026-11-18 | 1.4 | Aplica retrabalho da inspeção de requisitos (Cap. 11): adiciona `CA-01.4`, `CA-01.5`, registro `V2` e perguntas em aberto `P1`, `P2` e `P3`. |
+
