@@ -1,11 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask
+from routes.anuncio import anuncio
+from routes.busca import busca
 from routes.cadastro import cadastro
+from routes.categoria import categoria
+from routes.contato import contato
 from routes.login import login
 from routes.usuario import usuario
-from routes.anuncio import anuncio
-from routes.categoria import categoria
-from routes.busca import busca
-from routes.contato import contato
 
 app = Flask(__name__)
 
@@ -20,8 +20,6 @@ app.register_blueprint(contato)
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-
 
 
 """ app.secret_key = 'teste_visual'
@@ -55,8 +53,9 @@ def detalhe_produto(id):
 
 @app.route('/produto/<int:id>/contato', methods=['POST'])
 def contato_produto(id):
-    # TODO (Maria Eduarda): Validar status do produto e contato do vendedor usando flash()
-    return redirect(url_for('detalhe_produto', id=id))
+        # TODO (Maria Eduarda): Validar status do produto
+        # e contato do vendedor usando flash()
+
 
 
 # --- JOÃO GUILHERME (Criação de Anúncios) ---
@@ -90,7 +89,3 @@ if __name__ == '__main__':
 
 
  """
-
-
-
-

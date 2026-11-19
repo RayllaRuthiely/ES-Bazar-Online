@@ -1,0 +1,23 @@
+name: verificacao
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Instalar dependências
+        run: pip install -r requirements-dev.txt
+      - name: Verificar formatação (Ruff)
+        run: ruff format --check .
+      - name: Verificar estilo (Ruff)
+        run: ruff check .
+      - name: Executar suíte de testes
+        run: pytest --cov=CodigoFonte --cov-report=term-missing
