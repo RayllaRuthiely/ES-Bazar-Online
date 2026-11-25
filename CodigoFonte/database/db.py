@@ -10,5 +10,4 @@ def conectar_banco():
         password="0000",
         database="0000"
     )
-
     return conexao
