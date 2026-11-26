@@ -1,17 +1,14 @@
-from database.db import conectar_banco
-from flask import Flask, render_template, request
+from flask import Blueprint, render_template, request
 from werkzeug.security import generate_password_hash
+from database.db import conectar_banco
 
-app = Flask(__name__)
-
-
-@app.route("/")
-def inicio():
-    return render_template("cadastro.html")
+cadastro = Blueprint("cadastro", __name__)
 
 
-@app.route("/cadastro", methods=["POST"])
-def cadastrar_usuario():
+@cadastro.route("/cadastro", methods=["GET", "POST"])
+def pagina_cadastro():
+    if request.method == "GET":
+        return render_template("cadastro.html")
 
     nome = request.form["nome"]
     email = request.form["email"]
@@ -20,7 +17,6 @@ def cadastrar_usuario():
     senha_criptografada = generate_password_hash(senha)
 
     conexao = conectar_banco()
-
     cursor = conexao.cursor()
 
     comando_sql = """
@@ -32,14 +28,17 @@ def cadastrar_usuario():
 
     valores = (nome, email, senha_criptografada, telefone, 1)
 
-    cursor.execute(comando_sql, valores)
-
-    conexao.commit()
-    cursor.close()
-    conexao.close()
-
-    return render_template("cadastro.html", mensagem="Usuário cadastrado com sucesso!")
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
+    try:
+        cursor.execute(comando_sql, valores)
+        conexao.commit()
+        return render_template(
+            "cadastro.html", mensagem="Usuário cadastrado com sucesso!"
+        )
+    except Exception as erro:
+        print("Erro ao cadastrar usuário:", erro)
+        return render_template(
+            "cadastro.html", mensagem="Não foi possível realizar o cadastro."
+        )
+    finally:
+        cursor.close()
+        conexao.close()
