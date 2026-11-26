@@ -2,22 +2,24 @@
 
 {% block content %}
 <div class="pagina-sucesso">
-    <h1 class="titulo-sucesso">Anúncio já publicado com sucesso</h1>
+    <div class="icone-sucesso" aria-hidden="true">✔</div>
+    <h1 class="titulo-sucesso">Anúncio publicado com sucesso</h1>
 
-    <!-- TODO (João Guilherme): Completar a tela de confirmação de publicação.
-         Requisitos para integrar com a rota /novo-anuncio do app.py:
-         
-         1. Adicionar um ícone ou destaque visual de sucesso acima do título.
-         2. Criar um card de resumo exibindo os dados da variável 'produto' recém-criada:
-            - Foto ({{ produto.foto }}) ou um espaço padrão caso não tenha foto.
-            - Nome ({{ produto.nome }}).
-            - Preço ({{ produto.preco }}).
-            - Status ({{ produto.status }}).
-         3. Adicionar dois links/botões na parte inferior:
-            - Um apontando para "/meus-anuncios" ("Ver meus anúncios").
-            - Outro apontando para "/catalogo" ("Voltar ao catálogo").
-    -->
+    <div class="card-resumo">
+        {% if produto.foto %}
+            <img class="foto-resumo" src="{{ produto.foto }}" alt="Foto de {{ produto.nome }}">
+        {% else %}
+            <div class="foto-resumo sem-foto">Sem foto</div>
+        {% endif %}
 
+        <h2 class="nome-resumo">{{ produto.nome }}</h2>
+        <p class="preco-resumo">R$ {{ "%.2f"|format(produto.preco)|replace(".", ",") }}</p>
+        <p class="status-resumo">Status: {{ produto.status }}</p>
+    </div>
+
+    <div class="acoes-sucesso">
+        <a href="/meus-anuncios" class="btn-preto botao-link">Ver meus anúncios</a>
+        <a href="/catalogo" class="btn-branco botao-link">Voltar ao catálogo</a>
+    </div>
 </div>
 {% endblock %}
-
