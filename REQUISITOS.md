@@ -82,6 +82,10 @@
 
 > **Pergunta em aberto — P1 (Inspeção Cap. 11):** Quais são exatamente os campos obrigatórios no cadastro de usuário (nome, e-mail, senha, WhatsApp/telefone) e qual a regra mínima de segurança para a senha? *(Casos de teste de validação de formato bloqueados até a resposta).*
 
+> **Pergunta em aberto — P5 (Privacidade, Cap. 13):** Por quanto tempo o sistema guarda nome, e-mail e telefone de uma conta desativada? *(A decisão D-01 mantém os dados no banco; a LGPD, art. 16, manda eliminar ao fim do tratamento).*
+
+> **Pergunta em aberto — P7 (Privacidade, Cap. 13):** Quem é o controlador dos dados do Bazar Online, e qual o papel da equipe em relação a eles? *(Ver `DADOS-PESSOAIS.md`).*
+
 ---
 
 ### HU-02 — Cadastrar e gerenciar anúncio
@@ -169,6 +173,8 @@
 **Dado** que o vendedor possui uma forma de contato cadastrada,
 **quando** o anúncio for consultado novamente enquanto estiver disponível,
 **então** a forma de contato deve continuar disponível ao comprador.
+
+> **Pergunta em aberto — P4 (Privacidade, Cap. 13):** O telefone do vendedor deve ser exibido a qualquer visitante ou apenas a compradores com conta e login? *(Define a coluna "Quem acessa" do `DADOS-PESSOAIS.md` e a política de acesso da HU-04).*
 
 ---
 
@@ -280,6 +286,8 @@
 *Dado* que um anúncio foi removido,
 *quando* o vendedor consultar seus próprios anúncios,
 *então* o sistema deve continuar mostrando o anúncio removido, marcado como inativo, sem exibi-lo aos compradores.
+
+> **Pergunta em aberto — P6 (Privacidade, Cap. 13):** Por quanto tempo anúncios removidos e suas fotos ficam guardados no histórico do vendedor (CA-08.2)?
 
 ## 4. Casos de uso
 
@@ -503,4 +511,4 @@ A equipe conduziu a inspeção técnica dos requisitos do fluxo principal (`HU-0
 | 2026-09-23 | 1.2    | Adiciona CA-05.4 (cancelamento de reserva) e HU-08 (remover anúncio), lacunas encontradas na modelagem.|
 | 2026-11-18 | 1.3    | Correção dos Critérios de Aceitação em História dos Usuários. |
 | 2026-11-18 | 1.4 | Aplica retrabalho da inspeção de requisitos (Cap. 11): adiciona `CA-01.4`, `CA-01.5`, registro `V2` e perguntas em aberto `P1`, `P2` e `P3`. |
-
+| 2026-11-24 | 1.5 | Adiciona as perguntas em aberto de privacidade `P4` a `P7` (Cap. 13), ligadas ao `DADOS-PESSOAIS.md`. |
