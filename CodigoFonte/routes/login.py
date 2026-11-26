@@ -1,10 +1,3 @@
-<<<<<<< Updated upstream
-from flask import Blueprint, render_template, request
-from database.db import conectar_banco
-from werkzeug.security import generate_password_hash
-
-login = Blueprint("login", __name__)
-=======
 from flask import Blueprint, render_template, request, redirect, url_for, session
 from werkzeug.security import check_password_hash
 from database.db import conectar_banco
@@ -50,4 +43,3 @@ def pagina_login():
     finally:
         cursor.close()
         conexao.close()
->>>>>>> Stashed changes

@@ -43,15 +43,56 @@ A plataforma terá como foco facilitar a busca, divulgação e negociação de p
 
 ## Tecnologias
 
-As tecnologias utilizadas serão definidas pela equipe durante o desenvolvimento do projeto.
+- **Linguagem:** Python 3.12+
+- **Framework Web:** Flask
+- **Banco de Dados:** MySQL (`mysql-connector-python`)
+- **Testes e Qualidade:** Pytest, `pytest-cov` e Ruff
+- **Integração Contínua:** GitHub Actions
 
 ## Como executar
 
-As instruções para instalação e execução do projeto serão adicionadas conforme o desenvolvimento da aplicação.
+1. **Clonar o repositório e ativar o ambiente virtual:**
+   ```bash
+   git clone https://github.com
+   cd ES-Bazar-Online
+   python -m venv venv
+   ```
+
+2. **Instalar as dependências da aplicação e de testes:**
+   ```bash
+   pip install -r requirements-dev.txt
+   ```
+
+3. **Executar a aplicação Flask:**
+   ```bash
+   python CodigoFonte/app.py
+   ```
+
+4. **Executar a suíte de testes automatizados e cobertura:**
+   ```bash
+   pytest -v --cov=CodigoFonte --cov-report=term-missing
+   ```
 
 ## Status
 
-Projeto em desenvolvimento.
+Projeto em desenvolvimento (**19 de 35 entregáveis concluídos** — Capítulos 1 a 12 finalizados; Capítulos 13 a 16 planejados).
+
+
+### Gráfico de Burndown — Evolução e Entregas Restantes
+
+```mermaid
+xychart-beta
+    title "Burndown Geral — Bazar Online (35 Entregáveis)"
+    x-axis ["Início", "3m", "2m", "1m", "1sem", "Hoje", "Cap.13", "Cap.14", "Cap.15", "Cap.16"]
+    y-axis "Entregáveis Restantes" 0 --> 35
+    line "Meta Ideal" [35, 31, 27, 23, 19, 15, 12, 8, 4, 0]
+    line "Real + Projeção" [35, 34, 32, 30, 27, 16, 12, 8, 4, 0]
+```
+
+**Legenda:**
+* 🔵 **Linha Azul (Meta Ideal):** Ritmo linear esperado ao longo do semestre.
+* 🟢 **Linha Verde (Real + Projeção):** Progresso real até hoje (**16 entregáveis restantes**) e planejamento para os Capítulos 13 a 16 até a versão `v1.0.0`.
+
 
 ## Licença
 

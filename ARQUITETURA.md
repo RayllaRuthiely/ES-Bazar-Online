@@ -39,13 +39,13 @@ Operações do sistema, derivadas do modelo de domínio e dos critérios de acei
 
 | Operação | Para quê | Origem |
 |---|---|---|
-| `POST /api/usuarios` | Criar conta | HU-01, CA-06.1, CA-06.2 |
+| `POST /api/usuarios` | Criar conta | HU-01, CA-01.1, CA-01.2 |
 | `POST /api/sessoes` | Entrar (login) | HU-01 |
 | `GET /api/categorias` | Informar as categorias aceitas antes do formulário | RN-01, D-03 |
-| `POST /api/anuncios` | Publicar anúncio com fotos | HU-02, CA-01.1, CA-01.2, UC-01 |
-| `GET /api/anuncios?busca=&categoria=&precoMin=&precoMax=` | Catálogo, busca e filtro | HU-03, HU-05, CA-02.1, CA-02.2, CA-04.1, CA-04.2, RN-03 |
-| `GET /api/anuncios/{id}` | Detalhe do produto com o contato do vendedor | HU-07, HU-04, CA-07.1, CA-07.2, CA-03.1, CA-03.2 |
-| `PUT /api/anuncios/{id}/status` | Alterar o status | HU-06, CA-05.1, CA-05.2, CA-05.4 |
+| `POST /api/anuncios` | Publicar anúncio com fotos | HU-02, CA-02.1, CA-02.2, UC-01 |
+| `GET /api/anuncios?busca=&categoria=&precoMin=&precoMax=` | Catálogo, busca e filtro | HU-03, HU-05, CA-03.1, CA-03.2, CA-05.1, CA-05.2, RN-03 |
+| `GET /api/anuncios/{id}` | Detalhe do produto com o contato do vendedor | HU-07, HU-04, CA-07.1, CA-07.2, CA-04.1, CA-04.2 |
+| `PUT /api/anuncios/{id}/status` | Alterar o status | HU-06, CA-06.1, CA-06.2, CA-06.4 |
 | `DELETE /api/anuncios/{id}` | Remover anúncio (apagamento lógico, D-01) | HU-08, CA-08.1 |
 | `GET /api/usuarios/{id}/anuncios` | Meus anúncios, incluindo os inativos | UC-04, CA-08.2 |
 
@@ -56,11 +56,11 @@ Códigos de status: 200 leitura ou alteração; 201 criação; 204 remoção; 40
 ## Verificações
 | Verificação | Frontend | Backend |
 |---|---|---|
-| Campos obrigatórios do anúncio | marca e avisa | decide, 422 (CA-01.2) |
+| Campos obrigatórios do anúncio | marca e avisa | decide, 422 (CA-02.2) |
 | Categoria válida | mostra só as de `GET /api/categorias` | decide, 422 (RN-01) |
 | Preço maior que zero | campo numérico | decide, 422 |
 | Pelo menos uma foto | avisa | decide, 422 |
-| Status permitido e transição válida | mostra só as opções válidas | decide, 422 status inexistente (CA-05.2), 409 transição proibida |
+| Status permitido e transição válida | mostra só as opções válidas | decide, 422 status inexistente (CA-06.2), 409 transição proibida |
 | Só o dono altera ou remove | esconde os botões | decide em toda operação (403, Capítulo 13) |
 | Vendido e removido fora do catálogo | não participa | filtra na consulta (RN-03, CA-08.1) |
 | Data de criação | não participa | gera no servidor |
@@ -80,7 +80,7 @@ Códigos de status: 200 leitura ou alteração; 201 criação; 204 remoção; 40
 | Id | Decisão | Motivo | Consequência aceita | Situação |
 |---|---|---|---|---|
 | A-01 | Monólito modular. Descartado: serviços separados | Cinco pessoas, um semestre, uma base de dados, e anúncio e fotos gravados em uma transação | Todo o sistema é implantado junto; as fronteiras dependem da disciplina do código | Aceita |
-| A-02 | O backend decide toda verificação que importa; o frontend repete algumas para orientar. Descartado: validar só no frontend | O cliente pode ser contornado, e o CA-01.2 exige a recusa | Duas verificações para manter coerentes; o frontend lê as regras da API em vez de copiá-las | Aceita |
+| A-02 | O backend decide toda verificação que importa; o frontend repete algumas para orientar. Descartado: validar só no frontend | O cliente pode ser contornado, e o CA-02.2 exige a recusa | Duas verificações para manter coerentes; o frontend lê as regras da API em vez de copiá-las | Aceita |
 | A-03 | Contrato escrito antes da implementação, na pasta `contrato/`, alterado só por pull request revisado | Frontend e backend avançam em paralelo | Toda mudança de contrato passa por revisão das duas partes | Aceita |
 | A-04 | Uma base relacional, acessada só pelo backend. Descartado: o frontend acessar o banco | Transação de anúncio e fotos; modelo de dados relacional do `PROJETO.md` | Toda consulta passa pelo backend | Aceita |
 | A-05 | Data e hora geradas pelo servidor, em ISO 8601 com fuso. Descartado: data enviada pelo cliente | O relógio do cliente não é confiável, e `data_criacao` ordena o catálogo | Os testes precisam controlar o relógio | Aceita |
@@ -98,3 +98,4 @@ Códigos de status: 200 leitura ou alteração; 201 criação; 204 remoção; 40
 
 ## Histórico de revisão
 - 2026-10-21: primeira versão
+- 2026-11-18: Correção e aspersão

@@ -1,0 +1,4 @@
+-r CodigoFonte/requirements.txt
+pytest
+pytest-cov
+ruff

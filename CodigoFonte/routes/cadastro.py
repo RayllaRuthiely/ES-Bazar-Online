@@ -1,8 +1,8 @@
-from flask import Blueprint, render_template, request, redirect, url_for, session
-from werkzeug.security import check_password_hash
+from flask import Flask, render_template, request
+from werkzeug.security import generate_password_hash
 from database.db import conectar_banco
 
-app = Flask(__name__)   
+app = Flask(__name__)  
 
 
 @app.route("/")		
@@ -17,6 +17,7 @@ def cadastrar_usuario():
     email = request.form["email"]
     senha = request.form["senha"]
     telefone = request.form["telefone"]
+    senha_criptografada = generate_password_hash(senha)
 
     conexao = conectar_banco()	
 
@@ -27,10 +28,10 @@ def cadastrar_usuario():
         INSERT INTO USUARIO
         (NOME_USUARIO, EMAIL_USUARIO, SENHA_USUARIO,
          TELEFONE_USUARIO, ATIVO_USUARIO)
-        VALUES (%s, %s, %s, %s, %s)		//os valores serão recebidos do formulário
+        VALUES (%s, %s, %s, %s, %s)
     """
 
-    valores = (nome, email, senha, telefone, 1)		
+    valores = (nome, email, senha_criptografada, telefone, 1)
 
     cursor.execute(comando_sql, valores) 
 
