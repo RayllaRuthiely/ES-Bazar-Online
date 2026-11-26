@@ -1,13 +1,13 @@
+from database.db import conectar_banco
 from flask import Flask, render_template, request
 from werkzeug.security import generate_password_hash
-from database.db import conectar_banco
 
-app = Flask(__name__)  
+app = Flask(__name__)
 
 
-@app.route("/")		
+@app.route("/")
 def inicio():
-    return render_template("cadastro.html") 	
+    return render_template("cadastro.html")
 
 
 @app.route("/cadastro", methods=["POST"])
@@ -19,10 +19,9 @@ def cadastrar_usuario():
     telefone = request.form["telefone"]
     senha_criptografada = generate_password_hash(senha)
 
-    conexao = conectar_banco()	
+    conexao = conectar_banco()
 
-    cursor = conexao.cursor()	
-
+    cursor = conexao.cursor()
 
     comando_sql = """
         INSERT INTO USUARIO
@@ -33,14 +32,14 @@ def cadastrar_usuario():
 
     valores = (nome, email, senha_criptografada, telefone, 1)
 
-    cursor.execute(comando_sql, valores) 
+    cursor.execute(comando_sql, valores)
 
-    conexao.commit()  		
-    cursor.close()		
-    conexao.close()		
-
+    conexao.commit()
+    cursor.close()
+    conexao.close()
 
     return render_template("cadastro.html", mensagem="Usuário cadastrado com sucesso!")
+
 
 if __name__ == "__main__":
     app.run(debug=True)

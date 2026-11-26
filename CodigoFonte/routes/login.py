@@ -1,12 +1,13 @@
-from flask import Blueprint, render_template, request, redirect, url_for, session
-from werkzeug.security import check_password_hash
 from database.db import conectar_banco
+from flask import Blueprint, render_template, request
+from werkzeug.security import check_password_hash
 
 login = Blueprint("login", __name__)
 
+
 @login.route("/login", methods=["GET", "POST"])
 def pagina_login():
-    
+
     if request.method == "GET":
         return render_template("login.html")
 
