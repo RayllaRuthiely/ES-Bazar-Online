@@ -15,5 +15,4 @@ def conectar_banco():
         password=os.getenv("DB_PASSWORD", ""),
         database=os.getenv("DB_NAME", "BAZAR_ONLINE"),
     )
-
     return conexao
