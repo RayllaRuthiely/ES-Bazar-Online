@@ -7,7 +7,6 @@ cadastro = Blueprint("cadastro", __name__)
 
 @cadastro.route("/cadastro", methods=["GET", "POST"])
 def pagina_cadastro():
-
     if request.method == "GET":
         return render_template("cadastro.html")
 
@@ -15,7 +14,6 @@ def pagina_cadastro():
     email = request.form["email"]
     senha = request.form["senha"]
     telefone = request.form["telefone"]
-
     senha_criptografada = generate_password_hash(senha)
 
     conexao = conectar_banco()
@@ -33,19 +31,14 @@ def pagina_cadastro():
     try:
         cursor.execute(comando_sql, valores)
         conexao.commit()
-
         return render_template(
             "cadastro.html", mensagem="Usuário cadastrado com sucesso!"
         )
-
     except Exception as erro:
-        conexao.rollback()
-        print("Erro ao cadastrar:", erro)
-
+        print("Erro ao cadastrar usuário:", erro)
         return render_template(
             "cadastro.html", mensagem="Não foi possível realizar o cadastro."
         )
-
     finally:
         cursor.close()
         conexao.close()
