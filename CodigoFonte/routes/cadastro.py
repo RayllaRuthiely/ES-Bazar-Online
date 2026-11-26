@@ -1,6 +1,6 @@
+from database.db import conectar_banco
 from flask import Blueprint, render_template, request
 from werkzeug.security import generate_password_hash
-from database.db import conectar_banco
 
 cadastro = Blueprint("cadastro", __name__)
 
