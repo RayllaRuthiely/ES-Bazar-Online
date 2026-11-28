@@ -4,14 +4,47 @@
 <div class="pagina-novo-anuncio">
     <h1 class="titulo-novo-anuncio">Novo Anúncio</h1>
 
-    <!-- TODO (João Guilherme): Criar aqui o formulário de cadastro de produto.
-         Requisitos para integrar com o app.py:
-         1. A tag <form> deve enviar para action="/novo-anuncio" com method="POST".
-         2. Criar campo de upload de foto (name="foto").
-         3. Criar inputs para Título (name="titulo"), Descrição (name="descricao") e Preço (name="preco").
-         4. Criar um <select> para Categoria (name="categoria") com opções como Roupas, Calçados, Acessórios e Outros.
-         5. Adicionar um link/botão para cancelar (voltando para /catalogo) e um botão type="submit" para publicar.
-    -->
+    {% if erros %}
+        <div class="alerta erro">
+            {% for erro in erros %}
+                <p>{{ erro }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
 
+    <!-- enctype é obrigatório para a foto chegar ao servidor -->
+    <form class="form-anuncio" action="/novo-anuncio" method="POST" enctype="multipart/form-data">
+
+        <label for="foto">Foto do produto *</label>
+        <input type="file" id="foto" name="foto" accept=".jpg,.jpeg,.png,.webp" required>
+
+        <label for="titulo">Título *</label>
+        <input type="text" id="titulo" name="titulo" maxlength="50" required
+               value="{{ dados.get('titulo', '') }}" placeholder="Ex.: Tênis de corrida nº 40">
+
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" name="descricao" maxlength="100" rows="3"
+                  placeholder="Estado de conservação, tamanho, detalhes">{{ dados.get('descricao', '') }}</textarea>
+
+        <label for="preco">Preço (R$) *</label>
+        <input type="number" id="preco" name="preco" min="0.01" step="0.01" required
+               value="{{ dados.get('preco', '') }}" placeholder="0,00">
+
+        <label for="categoria">Categoria *</label>
+        <select id="categoria" name="categoria" required>
+            <option value="">Selecione uma categoria</option>
+            {% for categoria in categorias %}
+                <option value="{{ categoria.ID_CATEGORIA }}"
+                    {% if dados.get('categoria') == categoria.ID_CATEGORIA|string %}selected{% endif %}>
+                    {{ categoria.NOME_CATEGORIA }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <div class="acoes-anuncio">
+            <a href="/catalogo" class="btn-branco botao-link">Cancelar</a>
+            <button type="submit" class="btn-preto">Publicar</button>
+        </div>
+    </form>
 </div>
 {% endblock %}
