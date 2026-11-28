@@ -33,19 +33,16 @@ def pagina_login():
         senha_armazenada = usuario["SENHA_USUARIO"]
 
         if check_password_hash(senha_armazenada, senha):
-
             session.clear()
 
             session["id_usuario"] = usuario["ID_USUARIO"]
             session["nome_usuario"] = usuario["NOME_USUARIO"]
 
-
             return redirect(url_for("anuncio.novo_anuncio"))
-    
-        else:
-            return render_template( "login.html", mensagem="Senha incorreta.")
 
-    
+        else:
+            return render_template("login.html", mensagem="Senha incorreta.")
+
     except Exception as erro:
         print("Erro ao realizar login:", erro)
         return render_template("login.html", mensagem="Erro ao realizar login.")
